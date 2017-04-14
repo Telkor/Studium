@@ -9,9 +9,9 @@
 
 using namespace std;
 
-enum Status {open, closed, duplicate}; 
+enum Status{open, closed, duplicate}; 
 
-class Ticket {
+class Ticket{
 public:
     string text;
     string owner;
@@ -19,12 +19,20 @@ public:
     int id;
     
     Ticket();
-    Ticket(string, string);
+    Ticket(string ownerName, string description);
+    string getext() const;
+    string getOwner() const;
+    int getId() const;
+    getStatus() const;
+    string getShort() const ;
+    string getStatusAsString() const;
+    void print() const;
     
     
 private:
     static int eindeutigeid = 1;
 };
+
 
 
 #endif	/* TICKET_H */
