@@ -13,24 +13,28 @@ enum Status{open, closed, duplicate};
 
 class Ticket{
 public:
+    
+    Ticket();
+    Ticket(string ownerName, string description);
+    string getText() const;
+    string getOwner() const;
+    int getId() const;
+    Status getStatus() const;
+    string getShort() const ;
+    string getStatusAsString() const;
+    void print() const;
+    void setPriority(int prio);
+    int getPriority()const;
+    
+    
+    
+private:
     string text;
     string owner;
     Status status;
     int id;
-    
-    Ticket();
-    Ticket(string ownerName, string description);
-    string getext() const;
-    string getOwner() const;
-    int getId() const;
-    getStatus() const;
-    string getShort() const ;
-    string getStatusAsString() const;
-    void print() const;
-    
-    
-private:
-    static int eindeutigeid = 1;
+    static int eindeutigeid;
+    int priority;
 };
 
 

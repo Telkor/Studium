@@ -13,6 +13,8 @@
 
 using namespace std;
 
+int Ticket::eindeutigeid = 1;
+
 Ticket::Ticket(){
     
 }
@@ -24,7 +26,7 @@ Ticket::Ticket(string ownerName, string description){
     
 }
 
-string Ticket::getext() const{
+string Ticket::getText() const{
     return text;
 }
 
@@ -37,13 +39,17 @@ int Ticket::getId() const{
     }
 
 Status Ticket::getStatus() const{
-        return Status;
+        return status;
     }
 
-string Ticket::getShort(){
-       
-    //text.find('.')
-    return text.substr(0, 2);
+string Ticket::getShort() const{
+     
+    /*
+    size_t pos = text.find(".");
+    string text2 = text.substr(0, text);
+    text = text2;
+    return text; */
+    return text;
         //Nur bis zum ersten .
     }
 
@@ -64,13 +70,10 @@ void Ticket::print() const{
     cout << "Status:" << getStatusAsString() << endl;
 }
 
-
-
-/*
- * 
- 
-int main(int argc, char** argv) {
-
-    return 0;
+void Ticket::setPriority(int prio){
+    priority = prio;
 }
-*/
+int Ticket::getPriority() const{
+    return priority;
+}
+
