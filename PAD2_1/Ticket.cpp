@@ -21,9 +21,12 @@ Ticket::Ticket(){
 
 Ticket::Ticket(string ownerName, string description){
     owner = ownerName;
+    text = description;
     id = eindeutigeid;
     status = open;
+    eindeutigeid += 1;
     
+   
 }
 
 string Ticket::getText() const{
@@ -42,14 +45,13 @@ Status Ticket::getStatus() const{
         return status;
     }
 
-string Ticket::getShort() const{
+string Ticket::getShort(){
      
-    /*
+   
     size_t pos = text.find(".");
-    string text2 = text.substr(0, text);
+    string text2 = text.substr(0, pos);
     text = text2;
-    return text; */
-    return text;
+    return text; 
         //Nur bis zum ersten .
     }
 
@@ -63,11 +65,11 @@ string Ticket::getStatusAsString() const{
         }
     }   
 
-void Ticket::print() const{
-    cout << "Beschreibung:" << text << endl;
+void Ticket::print(){
     cout << "Besitzer: " << owner << endl;
+    cout << "Beschreibung: " << getShort() << endl;
     cout << "ID:" << id << endl;
-    cout << "Status:" << getStatusAsString() << endl;
+    cout << "Status:" << getStatusAsString() << endl << endl;
 }
 
 void Ticket::setPriority(int prio){
@@ -77,3 +79,14 @@ int Ticket::getPriority() const{
     return priority;
 }
 
+void Ticket::setOwner(string own){
+    owner = own;
+}
+
+void Ticket::setText(string mtext){
+    text = mtext;
+}
+
+void Ticket::setEinid(){
+    eindeutigeid += 1;
+}

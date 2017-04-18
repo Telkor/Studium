@@ -20,11 +20,14 @@ public:
     string getOwner() const;
     int getId() const;
     Status getStatus() const;
-    string getShort() const ;
+    string getShort();
     string getStatusAsString() const;
-    void print() const;
+    void print();
     void setPriority(int prio);
     int getPriority()const;
+    void setOwner(string own);
+    void setText(string mtext);
+    void static setEinid();
     
     
     

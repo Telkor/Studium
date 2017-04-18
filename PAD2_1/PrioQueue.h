@@ -24,7 +24,7 @@ public:
     PrioQueue();
     void push(Ticket& t, int priority);
     void pop();
-    
+    void deleteV();
 		
 private:
     int qpriority;
