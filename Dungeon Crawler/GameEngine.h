@@ -11,7 +11,7 @@ class GameEngine{
 public:
     GameEngine(int height, int width, const vector<string>& data);
     ~GameEngine();
-    bool finished();
+    bool finished() const;
     void turn();
     void run();
     

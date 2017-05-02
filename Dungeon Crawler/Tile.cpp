@@ -9,15 +9,15 @@ Tile::Tile(TileTyp typart, Character* heldfigur){
     held = heldfigur;
 }
 
-Tile::TileTyp Tile::getTile(){
+Tile::TileTyp Tile::getTile() const{
     return typ;
 }
 
-Character* Tile::getCharacter(){
+Character* Tile::getCharacter() const{
     return held;
 }
 
-bool Tile::hasCharacter(){
+bool Tile::hasCharacter() const{
     if(held != nullptr){
         return true;
     }
@@ -28,7 +28,7 @@ void Tile::setCharacter(Character* heldfigur){
     held = heldfigur;
 }
 
-void Tile::onLeave(Tile* toTile){
+void Tile::onLeave(Tile* toTile){ //Figur wird auf die Kachel "toTile" geschoben
     if(toTile->hasCharacter() == false){
         held = nullptr;
         toTile->onEnter(held, this);      
@@ -36,6 +36,6 @@ void Tile::onLeave(Tile* toTile){
 }   
     
 
-void Tile::onEnter(Character* c, Tile* fromTile){
+void Tile::onEnter(Character* c, Tile* fromTile){ //simuliert das "Ankommen" der Figur 
     held = c;
 }

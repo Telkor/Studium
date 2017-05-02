@@ -27,7 +27,7 @@ int main() {
         "##########",}; 
         
        GameEngine ge(1,1,data); 
-       //ge.run();
+       ge.run();
     
     
     return 0;

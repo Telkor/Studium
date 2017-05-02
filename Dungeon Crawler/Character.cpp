@@ -34,6 +34,6 @@ char Character::move(){
     }
 }
 
-char Character::getZeichen(){
+char Character::getZeichen() const{
     return zeichen;
 }

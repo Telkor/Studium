@@ -13,8 +13,8 @@ GameEngine::~GameEngine(){
 }
 
 
-bool GameEngine::finished(){
-    if (spielEnde >= 0)
+bool GameEngine::finished() const{
+    if (spielEnde <= 0)
         return true;
 }
 
@@ -61,6 +61,6 @@ void GameEngine::turn(){
     
         }
     } 
-    spielEnde++;
+    spielEnde--;
 
 }

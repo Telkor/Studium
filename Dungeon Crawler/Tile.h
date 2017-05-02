@@ -12,12 +12,11 @@
 class Tile{
 
 public:
-    //Tile();
     enum TileTyp{Floor, Wall};
     Tile(TileTyp typart, Character* heldfigur);
-    TileTyp getTile();
-    Character* getCharacter();
-    bool hasCharacter();
+    TileTyp getTile() const;
+    Character* getCharacter() const;
+    bool hasCharacter() const;
     void setCharacter(Character* heldfigur);
     void onLeave(Tile* toTile);
     void onEnter(Character* c, Tile* fromTile);

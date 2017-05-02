@@ -31,17 +31,17 @@ public:
     DungeonMap(int height, int width);
     DungeonMap(int height, int width, const vector<string>& data);
     ~DungeonMap();
-    int hoehe;
-    int breite;
     void place(Position pos, Character* c);
-    Position findTile(Tile* t);
-    Tile* findTile(Position pos);
-    Position findCharacter(Character* c);
-    void print();
+    Position findTile(Tile* t) const;
+    Tile* findTile(Position pos) const;
+    Position findCharacter(Character* c) const;
+    void print() const;
     
     
 private:
     Tile*** Spielwelt;
+    int hoehe;
+    int breite;
     
 };
 

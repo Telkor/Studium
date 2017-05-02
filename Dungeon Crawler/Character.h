@@ -12,7 +12,7 @@ public:
     Character();
     Character(char zeichenart);
     char move();
-    char getZeichen();
+    char getZeichen() const;
     
 private:
     char zeichen;

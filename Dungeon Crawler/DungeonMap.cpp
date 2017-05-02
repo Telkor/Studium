@@ -1,3 +1,8 @@
+#include <cstdlib>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cstdlib>
 #include "DungeonMap.h"
 
 using namespace std;
@@ -23,7 +28,7 @@ DungeonMap::DungeonMap(){
 }
 
 
-DungeonMap::DungeonMap(int height, int width){
+DungeonMap::DungeonMap(int height, int width){ //zweidimensionales Array anlegen und alle Tile* mit nullptr initalisieren
     hoehe = height;
     breite = width;
     
@@ -44,7 +49,7 @@ DungeonMap::DungeonMap(int height, int width){
        
 }
 
-DungeonMap::DungeonMap(int height, int width, const vector<string>& data){
+DungeonMap::DungeonMap(int height, int width, const vector<string>& data){ //initalisiert alle Tile* entsprechend des Parameters data 
     hoehe = height;
     breite = width;
     
@@ -54,16 +59,21 @@ DungeonMap::DungeonMap(int height, int width, const vector<string>& data){
         Spielwelt[height] = new Tile*[width];
     }
     
-    int counter = 0;
+    //int counter = 0;
     
     for (int i = 0; i < hoehe; i++){
         for (int j = 0; j < breite; j++){
+           if (data.at(i).at(j) == '.') {
+				Spielwelt[i][j] = new Tile(Tile::Floor, nullptr);
+			} else {
+				Spielwelt[i][j] = new Tile(Tile::Wall, nullptr);
+			}
             
-            if (data[counter] == ".")
+            /*if (data[counter] == ".")
                 Spielwelt[i][j] = new Tile(Tile::Floor, nullptr);
             if (data[counter] == "#")
                 Spielwelt[i][j] = new Tile(Tile::Wall, nullptr);
-            counter++;
+            counter++; */
         }
     }
     
@@ -103,7 +113,7 @@ DungeonMap::~DungeonMap(){
 }
 
 
-Position DungeonMap::findCharacter(Character* c){
+Position DungeonMap::findCharacter(Character* c) const{ //ermittelt Position von der Figur und gibt diese zurück
     
    for (int i = 0; i < hoehe; i++){
        
@@ -118,16 +128,16 @@ Position DungeonMap::findCharacter(Character* c){
    }
 }
 
-void DungeonMap::place(Position pos, Character* c){
+void DungeonMap::place(Position pos, Character* c){ //Spielfigur c auf der Kachel an Position pos setzen
     Spielwelt[pos.m_height][pos.m_width]->setCharacter(c);
 }
 
-Tile* DungeonMap::findTile(Position pos){ 
+Tile* DungeonMap::findTile(Position pos) const{ //liefert Zeiger auf die Kachel an der angegebenen Position pos
     Tile* t = Spielwelt[pos.m_height][pos.m_width];
     return t;
 }
 
-Position DungeonMap::findTile(Tile* t){
+Position DungeonMap::findTile(Tile* t) const{  //ermittelt die Position von Kachel t und gibt diese zurück
     for(int i = 0; i < hoehe; i++) {
         for(int j = 0; j < breite; j++){
             
@@ -142,7 +152,7 @@ Position DungeonMap::findTile(Tile* t){
     
 }
 
-void DungeonMap::print(){
+void DungeonMap::print() const{ //Ausgabe der Spielwelt
     
     for (int i = 0; i < hoehe; i++){
         cout << endl;
