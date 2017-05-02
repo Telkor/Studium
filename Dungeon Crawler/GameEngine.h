@@ -10,14 +10,15 @@ class GameEngine{
 
 public:
     GameEngine(int height, int width, const vector<string>& data);
+    ~GameEngine();
     bool finished();
     void turn();
     void run();
     
 private:
-    //DungeonMap dm;
+    DungeonMap dm;
     vector<Character*> spielfiguren;
-    int spielzugEnde = 10;
+    int spielEnde = 10;
 };
 
 

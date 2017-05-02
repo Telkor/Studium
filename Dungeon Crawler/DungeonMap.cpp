@@ -2,6 +2,27 @@
 
 using namespace std;
 
+DungeonMap::DungeonMap(){
+    hoehe = 1;
+    breite = 1;
+    
+    Spielwelt = new Tile**[1];
+    
+    for(int i = 0; i < 1; i++) {
+        Spielwelt[i] = new Tile*[1];
+    }
+    
+    for (int i = 0; i < 1; i++){
+       
+        for (int j = 0; j < 1; j++){
+            
+            Spielwelt[i][j] = nullptr;
+        }
+            
+    }
+}
+
+
 DungeonMap::DungeonMap(int height, int width){
     hoehe = height;
     breite = width;
@@ -40,6 +61,9 @@ DungeonMap::DungeonMap(int height, int width, const vector<string>& data){
             
             if (data[counter] == ".")
                 Spielwelt[i][j] = new Tile(Tile::Floor, nullptr);
+            if (data[counter] == "#")
+                Spielwelt[i][j] = new Tile(Tile::Wall, nullptr);
+            counter++;
         }
     }
     
@@ -73,6 +97,11 @@ DungeonMap::DungeonMap(int height, int width, const vector<string>& data){
     */       
     
 }
+
+DungeonMap::~DungeonMap(){
+    delete[] Spielwelt;
+}
+
 
 Position DungeonMap::findCharacter(Character* c){
     

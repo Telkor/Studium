@@ -28,12 +28,12 @@ void Tile::setCharacter(Character* heldfigur){
     held = heldfigur;
 }
 
-/* void Tile::onLeave(Tile* toTile){
+void Tile::onLeave(Tile* toTile){
     if(toTile->hasCharacter() == false){
         held = nullptr;
-        toTile->onEnter(held,  );      
+        toTile->onEnter(held, this);      
     }
-}   */
+}   
     
 
 void Tile::onEnter(Character* c, Tile* fromTile){

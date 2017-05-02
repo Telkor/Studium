@@ -19,7 +19,7 @@ public:
     Character* getCharacter();
     bool hasCharacter();
     void setCharacter(Character* heldfigur);
-    //void onLeave(Tile* toTile);
+    void onLeave(Tile* toTile);
     void onEnter(Character* c, Tile* fromTile);
     
     
