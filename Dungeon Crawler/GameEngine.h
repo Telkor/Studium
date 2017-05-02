@@ -1,6 +1,3 @@
-#ifndef GAMEENGINE_H
-#define	GAMEENGINE_H
-
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -12,13 +9,15 @@
 class GameEngine{
 
 public:
+    GameEngine(int height, int width, const vector<string>& data);
+    bool finished();
+    void turn();
+    void run();
     
 private:
-    DungeonMap dm;
-    vector<Character *> spielfiguren;
-    
+    //DungeonMap dm;
+    vector<Character*> spielfiguren;
+    int spielzugEnde = 10;
 };
 
-
-#endif	/* GAMEENGINE_H */
 

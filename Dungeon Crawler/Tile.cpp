@@ -4,7 +4,7 @@
 #include <vector>
 #include "Tile.h"
 
-Tile::Character(TileTyp typart, Character* heldfigur){
+Tile::Tile(TileTyp typart, Character* heldfigur){
     typ = typart;
     held = heldfigur;
 }
@@ -28,12 +28,13 @@ void Tile::setCharacter(Character* heldfigur){
     held = heldfigur;
 }
 
-void Tile::onLeave(Tile* toTile){
+/* void Tile::onLeave(Tile* toTile){
     if(toTile->hasCharacter() == false){
         held = nullptr;
-        toTile->onEnter(held, /*?*/ );      
+        toTile->onEnter(held,  );      
     }
-}
+}   */
+    
 
 void Tile::onEnter(Character* c, Tile* fromTile){
     held = c;

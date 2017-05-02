@@ -1,6 +1,4 @@
-#ifndef CHARACTER_H
-#define	CHARACTER_H
-
+#pragma once
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -13,7 +11,7 @@ public:
 
     Character();
     Character(char zeichenart);
-    int move();
+    char move();
     char getZeichen();
     
 private:
@@ -21,5 +19,4 @@ private:
     
 };
 
-#endif	/* CHARACTER_H */
 

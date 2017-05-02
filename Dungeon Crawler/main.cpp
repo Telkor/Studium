@@ -1,10 +1,3 @@
-/* 
- * File:   main.cpp
- * Author: fs
- *
- * Created on 28. April 2017, 13:59
- */
-
 #include <cstdlib>
 #include <cstdlib>
 #include <iostream>
@@ -33,10 +26,9 @@ int main() {
         "#........#", 
         "##########",}; 
         
-        GameEngine ge(10,10,data); 
-        ge.run();
+       // GameEngine ge(10,10,data); 
+       // ge.run();
     
     
     return 0;
 }
-
