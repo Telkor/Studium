@@ -2,20 +2,24 @@
 
 using namespace std;
 
-GameEngine::GameEngine(int height, int width, const vector<string>& data) {
-    dm = DungeonMap(height,width,data);
-    Character* c = new Character();
+GameEngine::GameEngine(int height, int width, const vector<string>& data): dm(height,width,data) {
+    Character* c = new Character('!');
     spielfiguren.push_back(c);
+    Position pos;
+    pos.m_height = 5;
+    pos.m_width = 5;
+    dm.place(pos, c);
 }
 
 GameEngine::~GameEngine(){
-    dm.~DungeonMap();
+   
 }
 
 
 bool GameEngine::finished() const{
     if (spielEnde <= 0)
         return true;
+    else return false;
 }
 
 void GameEngine::run(){
@@ -25,13 +29,17 @@ void GameEngine::run(){
 
 void GameEngine::turn(){
     for (int i = 0; i < spielfiguren.size(); i++){
+        dm.print();
         
         Position pos;
-        
-        dm.findCharacter(spielfiguren.at(i)) = pos; 
-     
+                
+        pos = dm.findCharacter(spielfiguren.at(i)); 
+        //cout << pos.m_height;
+ 
         Tile* oldTile = dm.findTile(pos);
+        
         Position newPos = pos;
+       
         Tile* newTile;
         
         switch(spielfiguren.at(i)->move()){
@@ -58,7 +66,9 @@ void GameEngine::turn(){
                             newTile = dm.findTile(newPos);
                             oldTile->onLeave(newTile);
                             break;                    
-    
+                
+                default:
+                            break;
         }
     } 
     spielEnde--;

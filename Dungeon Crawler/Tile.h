@@ -13,7 +13,7 @@ class Tile{
 
 public:
     enum TileTyp{Floor, Wall};
-    Tile(TileTyp typart, Character* heldfigur);
+    Tile(TileTyp typart);
     TileTyp getTile() const;
     Character* getCharacter() const;
     bool hasCharacter() const;

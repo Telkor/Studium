@@ -53,67 +53,47 @@ DungeonMap::DungeonMap(int height, int width, const vector<string>& data){ //ini
     hoehe = height;
     breite = width;
     
-    Tile*** Spielwelt = new Tile**[height];
+    Spielwelt = new Tile**[height];
     
     for(int i = 0; i < height; i++) {
-        Spielwelt[height] = new Tile*[width];
+        Spielwelt[i] = new Tile*[width];
     }
     
-    //int counter = 0;
+   
     
-    for (int i = 0; i < hoehe; i++){
-        for (int j = 0; j < breite; j++){
-           if (data.at(i).at(j) == '.') {
-				Spielwelt[i][j] = new Tile(Tile::Floor, nullptr);
-			} else {
-				Spielwelt[i][j] = new Tile(Tile::Wall, nullptr);
-			}
-            
-            /*if (data[counter] == ".")
-                Spielwelt[i][j] = new Tile(Tile::Floor, nullptr);
-            if (data[counter] == "#")
-                Spielwelt[i][j] = new Tile(Tile::Wall, nullptr);
-            counter++; */
-        }
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*  for (int z = 0; z < data.size(); z++){
-        int y = data[z].length();
-                 
-        for (int a = 0; a < y ; a++){
-            string x = data[a].substr(y);
-                        
-                    while (y > 0) {
-                        if (x == ".")
-                        Spielwelt[i][j] = new Tile(Tile::Floor, nullptr);
-                    if (x == "#"){
-                        Spielwelt[i][j] = new Tile(Tile::Wall, nullptr);
+    for (int i = 0; i < height; i++){
+        for (int j = 0; j < width; j++){
+           
+            if (data.at(i).at(j) == '.') {
+        		Spielwelt[i][j] = new Tile(Tile::Floor);
+	    } 
+            if (data.at(i).at(j) == '#')   {
+                        Spielwelt[i][j] = new Tile(Tile::Wall);
                     }
-                                
-                    }      
-                }
-            }
-            
-        
-    */       
-    
+        }
+    }              
 }
 
 DungeonMap::~DungeonMap(){
-    delete[] Spielwelt;
+    for (int z = 0; z < hoehe; z++){        
+        for (int j = 0; j < breite; j++){
+            delete Spielwelt[z][j];
+            
+        }
+        delete Spielwelt[z];
+    }
+    
+    
+    delete Spielwelt;
+    
+    
+    Spielwelt = nullptr;
+    hoehe = 0;
+    breite = 0;
 }
 
 
-Position DungeonMap::findCharacter(Character* c) const{ //ermittelt Position von der Figur und gibt diese zurück
+Position DungeonMap::findCharacter(Character* c){ //ermittelt Position von der Figur und gibt diese zurück
     
    for (int i = 0; i < hoehe; i++){
        
@@ -152,15 +132,22 @@ Position DungeonMap::findTile(Tile* t) const{  //ermittelt die Position von Kach
     
 }
 
-void DungeonMap::print() const{ //Ausgabe der Spielwelt
+void DungeonMap::print(){ //Ausgabe der Spielwelt
+    Character* c = new Character('!');
+  
     
     for (int i = 0; i < hoehe; i++){
         cout << endl;
         for(int j = 0; j < breite; j++){
+            if (Spielwelt[i][j]->hasCharacter()){
+                cout << c->getZeichen();
+            }
             if (Spielwelt[i][j]->getTile() == Tile::Floor)
                 cout << ".";
             if (Spielwelt[i][j]->getTile() == Tile::Wall)
                 cout << "#";
+            
         }
     }
+    cout << endl;
 }

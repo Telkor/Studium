@@ -29,7 +29,7 @@ char Character::move(){
         case 'a': return 'a';
         case 's': return 's';
         case 'd': return 'd';
-        default : exit = true;
+        default : return 0;
     }    
     }
 }

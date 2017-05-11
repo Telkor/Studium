@@ -4,9 +4,9 @@
 #include <vector>
 #include "Tile.h"
 
-Tile::Tile(TileTyp typart, Character* heldfigur){
+Tile::Tile(TileTyp typart){
     typ = typart;
-    held = heldfigur;
+    held = nullptr;
 }
 
 Tile::TileTyp Tile::getTile() const{
@@ -29,9 +29,9 @@ void Tile::setCharacter(Character* heldfigur){
 }
 
 void Tile::onLeave(Tile* toTile){ //Figur wird auf die Kachel "toTile" geschoben
-    if(toTile->hasCharacter() == false){
-        held = nullptr;
+    if(toTile->hasCharacter() == false && toTile->getTile() == Floor){
         toTile->onEnter(held, this);      
+        held = nullptr;
     }
 }   
     

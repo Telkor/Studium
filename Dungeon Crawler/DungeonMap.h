@@ -34,8 +34,8 @@ public:
     void place(Position pos, Character* c);
     Position findTile(Tile* t) const;
     Tile* findTile(Position pos) const;
-    Position findCharacter(Character* c) const;
-    void print() const;
+    Position findCharacter(Character* c);
+    void print();
     
     
 private:
