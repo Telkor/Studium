@@ -7,7 +7,7 @@
 #include <vector>
 #include "Character.h"
 
-
+using namespace std;
 
 class Tile{
 
@@ -18,12 +18,12 @@ public:
     Character* getCharacter() const;
     bool hasCharacter() const;
     void setCharacter(Character* heldfigur);
-    void onLeave(Tile* toTile);
-    void onEnter(Character* c, Tile* fromTile);
-    
+    void virtual onLeave(Tile* toTile);
+    void virtual onEnter(Character* c, Tile* fromTile);
+    //Character* held = nullptr; // Eigentlich Private (wichtig!!!))
     
 private:
     TileTyp typ;
-    Character* held = nullptr;
+    Character* held = nullptr; // Eigentlich Private (wichtig!!!))
     
 };

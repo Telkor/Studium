@@ -3,7 +3,7 @@
 using namespace std;
 
 GameEngine::GameEngine(int height, int width, const vector<string>& data): dm(height,width,data) {
-    Character* c = new Character('!');
+    Character* c = new Character('c');
     spielfiguren.push_back(c);
     Position pos;
     pos.m_height = 5;
