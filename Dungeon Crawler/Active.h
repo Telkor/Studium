@@ -13,10 +13,15 @@ using namespace std;
 class Active : public Tile{
 
 public: 
-    Passive* ppointer;           
-    void setPassive(Passive* ppointer_);
+              
+    void setPassive(Passive* m_pPointer);
+    //void setStatus(bool m_status);
+    bool getStatus();
+    
 private:
-            
+    
+    Passive* pPointer; 
+    bool status;
   
 };
 #endif	/* ACTIVE_H */

@@ -3,8 +3,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cstdlib>
-#include <vector>
 #include "Character.h"
 
 using namespace std;
@@ -18,8 +16,8 @@ public:
     Character* getCharacter() const;
     bool hasCharacter() const;
     void setCharacter(Character* heldfigur);
-    void virtual onLeave(Tile* toTile);
-    void virtual onEnter(Character* c, Tile* fromTile);
+    virtual void onLeave(Tile* toTile);
+    virtual void onEnter(Character* c, Tile* fromTile);
     //Character* held = nullptr; // Eigentlich Private (wichtig!!!))
     
 private:

@@ -14,11 +14,11 @@ using namespace std;
 class Passive : public Tile{
 
 public: 
-       bool Status();
-       void setStatus();
-       void getStatus();
+       
+       void setStatus(bool m_status);
+       bool getStatus();
 private:
-            
+      bool status;      
   
 };
 
