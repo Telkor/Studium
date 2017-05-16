@@ -6,11 +6,11 @@
 
 using namespace std;
 
-char Door::printDoor(){
+void Door::print(){
     if(Passive::getStatus() == true){
-        return 'X';
+        cout << "X";
     }
     else{
-        return '/';
+        cout << "/";
     }
 }

@@ -11,7 +11,8 @@
 class ConsoleController : public Controller{
 
 public:
-    char move();
+    //ConsoleController();
+    char move() override;
     
         
 private:

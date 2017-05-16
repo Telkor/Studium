@@ -16,7 +16,7 @@ public:
     Floor();
     void onLeave(Tile* toTile);
     void onEnter(Character* c, Tile* fromTile);
-    
+    void print() override;
 
 
 private:

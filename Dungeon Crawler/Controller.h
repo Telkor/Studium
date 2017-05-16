@@ -8,17 +8,19 @@
 
 
 
+
 class Character;
 
 class Controller{
 
 public:
-    
+   //Controller(); 
 virtual char move() = 0;    
 Controller(Character* m_character);    
 
 private:
     Character* character;
+    
     
 };
 

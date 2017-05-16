@@ -69,6 +69,11 @@ DungeonMap::DungeonMap(int height, int width, const vector<string>& data){ //ini
             if (data.at(i).at(j) == '#')   {
                         Spielwelt[i][j] = new Tile(Tile::Wall);
                     }
+            if (data.at(i).at(j) == 'D')
+                Spielwelt[i][j] = new Door();
+            
+            if (data.at(i).at(j) == 'S')
+                Spielwelt[i][j] = new Switch();
         }
     }              
 }
@@ -138,15 +143,18 @@ void DungeonMap::print(){ //Ausgabe der Spielwelt
     for (int i = 0; i < hoehe; i++){
         cout << endl;
         for(int j = 0; j < breite; j++){
+            Spielwelt[i][j]->print();
             
-            if (Spielwelt[i][j]->hasCharacter()){
+            
+            
+      /*      if (Spielwelt[i][j]->hasCharacter()){
                 cout << c->getZeichen();
             }
             if (Spielwelt[i][j]->getTile() == Tile::Floor)
                 cout << ".";
             if (Spielwelt[i][j]->getTile() == Tile::Wall)
                 cout << "#";
-            
+            if (Spielwelt[i][j]->getTile() == ) */
         }
     }
     cout << endl;

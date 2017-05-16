@@ -16,3 +16,7 @@ void Wall::onLeave(Tile* toTile){
 void Wall::onEnter(Character* c, Tile* fromTile){
     fromTile->hasCharacter();
 }
+
+void Wall::print(){
+    cout << "#";
+}

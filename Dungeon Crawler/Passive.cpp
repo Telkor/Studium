@@ -8,6 +8,11 @@
 
 using namespace std;
 
+/*Passive::Passive() : Tile(){
+    
+    
+}*/
+
 void Passive::setStatus(bool m_status){
     status = m_status;
 }

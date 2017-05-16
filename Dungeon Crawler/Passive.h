@@ -14,7 +14,7 @@ using namespace std;
 class Passive : public Tile{
 
 public: 
-       
+       //Passive();
        void setStatus(bool m_status);
        bool getStatus();
 private:

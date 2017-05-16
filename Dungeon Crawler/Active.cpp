@@ -19,3 +19,16 @@ void Active::setPassive(Passive* m_pPointer){
 bool Active::getStatus(){
     return status;
 }
+
+void Active::setStatus(bool m_status){
+    status = m_status;
+}
+
+/* void Active::onLeave(Tile* toTile){
+    
+} */
+
+void Active::onEnter(Character* c, Tile* fromTile){
+    held = c;
+    setStatus(true);
+}

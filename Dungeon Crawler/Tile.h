@@ -22,6 +22,8 @@ public:
     virtual void onLeave(Tile* toTile);
     virtual void onEnter(Character* c, Tile* fromTile);
     //Character* held = nullptr; // Eigentlich Private (wichtig!!!))
+    virtual void print();
+    
     
 private:
     TileTyp typ;

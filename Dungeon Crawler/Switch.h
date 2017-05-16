@@ -12,10 +12,10 @@ using namespace std;
 class Switch : public Active{
     
 public:
-    Switch();
+    //Switch();
     void setPassive(Passive* m_pPointer);
     bool getStatus();
-    char printSwitch();
+    void print() override;
     
 private:
     

@@ -13,7 +13,7 @@ using namespace std;
  * 
  */
 int main() {
-    vector<string> info{"6 5 D 2 4 S"};
+    vector<string> info{"6 2 D 2 4 S"};
     vector<string> data{ 
         "##########", 
         "####.....#", 
@@ -21,7 +21,7 @@ int main() {
         "##.......#", 
         "#........#", 
         "#........#", 
-        "#....D...#", 
+        "#.D......#", 
         "#........#", 
         "#........#", 
         "##########",}; 

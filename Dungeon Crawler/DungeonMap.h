@@ -6,6 +6,8 @@
 #include "Tile.h"
 #include "Floor.h"
 #include "Wall.h"
+#include "Door.h"
+#include "Switch.h"
 
 using namespace std;
 

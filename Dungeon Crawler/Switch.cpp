@@ -14,11 +14,11 @@ bool Switch::getStatus(){
     
 }
 
-char Switch::printSwitch(){
+void Switch::print(){
     if(Active::getStatus() == true){
-        return '!';
+        cout << "!";
     }
     else{
-        return '?';
+        cout << "?";
     }
 }

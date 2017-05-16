@@ -13,7 +13,7 @@ class Door : public Passive{
 
 public:
     
-    char printDoor();
+    void print() override;
    
 private:
             

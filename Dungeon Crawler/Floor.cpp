@@ -17,3 +17,7 @@ void Floor::onLeave(Tile* toTile){
 void Floor::onEnter(Character* c, Tile* fromTile){
     
 }
+
+void Floor::print(){
+    cout << ".";
+}

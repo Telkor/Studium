@@ -19,7 +19,6 @@ Character::Character(char zeichenart){
 char Character::move(){
     controller->move();
     
-    //JUNGE SCHLIESS DOCH HIER WAS LOS BEI DIR
     /*
     char c;
     bool exit = false;

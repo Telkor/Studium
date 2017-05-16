@@ -15,12 +15,15 @@ class Active : public Tile{
 public: 
               
     virtual void setPassive(Passive* m_pPointer);
-    //void setStatus(bool m_status);
+    void setStatus(bool m_status);
     virtual bool getStatus();
+    //virtual void onLeave(Tile* toTile);
+    virtual void onEnter(Character* c, Tile* fromTile);
     
 private:
     Passive* pPointer; 
     bool status;
+    Character* held;
   
 };
 #endif	/* ACTIVE_H */

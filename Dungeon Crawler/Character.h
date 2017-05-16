@@ -17,7 +17,7 @@ public:
     
 private:
     char zeichen;
-    Controller *controller;
+    Controller* controller;
     
 };
 
