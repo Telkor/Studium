@@ -7,10 +7,10 @@
 using namespace std;
 
 void Wall::onLeave(Tile* toTile){
-    /*if(toTile->hasCharacter() == false && toTile->getTile() == Floor){
+   /* if(toTile->hasCharacter() == false && toTile->getTile() == Floor){
         toTile->onEnter(held, this);      
         held = nullptr;
-    } */
+    } */ 
 }
 
 void Wall::onEnter(Character* c, Tile* fromTile){
