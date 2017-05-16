@@ -4,6 +4,7 @@
 #include <vector>
 #include <stdio.h>
 #include "Character.h"
+#include "Controller.h"
 
 using namespace std;
 
@@ -16,7 +17,10 @@ Character::Character(char zeichenart){
 }  
     
 char Character::move(){
+    controller->move();
     
+    //JUNGE SCHLIESS DOCH HIER WAS LOS BEI DIR
+    /*
     char c;
     bool exit = false;
     
@@ -31,7 +35,7 @@ char Character::move(){
         case 'd': return 'd';
         default : return 0;
     }    
-    }
+    }  */
 }
 
 char Character::getZeichen() const{

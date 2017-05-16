@@ -4,11 +4,12 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include "Controller.h"
+
 
 class Character{
 
 public:
-
     Character();
     Character(char zeichenart);
     char move();
@@ -16,6 +17,7 @@ public:
     
 private:
     char zeichen;
+    Controller *controller;
     
 };
 

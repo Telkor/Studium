@@ -5,7 +5,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Character.h"
+
+
+
+class Character;
 
 class Controller{
 

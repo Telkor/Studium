@@ -10,6 +10,9 @@ using namespace std;
 class Tile{
 
 public:
+    Tile();
+    virtual ~Tile();
+    Tile(Character* character);
     enum TileTyp{Floor, Wall};
     Tile(TileTyp typart);
     TileTyp getTile() const;

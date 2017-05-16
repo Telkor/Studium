@@ -4,8 +4,20 @@
 #include <vector>
 #include "Tile.h"
 
+Tile::Tile(){
+    held = nullptr;
+}
+
+Tile::Tile(Character* character){
+    held = character;
+}
+
 Tile::Tile(TileTyp typart){
     typ = typart;
+    held = nullptr;
+}
+
+Tile::~Tile(){
     held = nullptr;
 }
 

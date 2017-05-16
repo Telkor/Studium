@@ -4,6 +4,8 @@
 #include <vector>
 #include <cstdlib>
 #include "Tile.h"
+#include "Floor.h"
+#include "Wall.h"
 
 using namespace std;
 

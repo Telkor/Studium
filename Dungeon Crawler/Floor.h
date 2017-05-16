@@ -6,14 +6,14 @@
 #include <string>
 #include <vector>
 #include "Tile.h"
-#include "Tile.h"
-#include "Character.h"
+//#include "Character.h"
 
 using namespace std;
 
 class Floor : public Tile{
 
 public:
+    Floor();
     void onLeave(Tile* toTile);
     void onEnter(Character* c, Tile* fromTile);
     

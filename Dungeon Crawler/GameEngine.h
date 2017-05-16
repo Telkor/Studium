@@ -9,11 +9,12 @@
 class GameEngine{
 
 public:
-    GameEngine(int height, int width, const vector<string>& data);
+    GameEngine(int height, int width, const vector<string>& data, vector<string> info);
     ~GameEngine();
     bool finished() const;
     void turn();
     void run();
+    void linker(vector<string> &info);
     
 private:
     DungeonMap dm;

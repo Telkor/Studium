@@ -1,14 +1,18 @@
 #include "GameEngine.h"
+#include "Active.h"
 
 using namespace std;
 
-GameEngine::GameEngine(int height, int width, const vector<string>& data): dm(height,width,data) {
-    Character* c = new Character('c');
+GameEngine::GameEngine(int height, int width, const vector<string>& data, vector<string> info): dm(height,width,data) {
+            
+    
+    Character* c = new Character('8');
     spielfiguren.push_back(c);
     Position pos;
     pos.m_height = 5;
     pos.m_width = 5;
     dm.place(pos, c);
+    linker(info);
 }
 
 GameEngine::~GameEngine(){
@@ -73,4 +77,23 @@ void GameEngine::turn(){
     } 
     spielEnde--;
 
+}
+
+void GameEngine::linker(vector<string>& info){
+    Active* activetile;
+    Passive* passivetile;
+    Position posobj;
+    
+    for (int i = 0; i < info.size(); i++){
+        posobj.m_height = static_cast<int> (info.at(i).at(0)) - 48;
+        posobj.m_width = static_cast<int> (info.at(i).at(2)) - 48;
+        //cout << posobj.m_height /* << posobj.m_width */ << endl;
+        passivetile = dynamic_cast<Passive*> (dm.findTile(posobj));
+        
+        posobj.m_height = static_cast<int> (info.at(i).at(6)) - 48;
+        posobj.m_width = static_cast<int> (info.at(i).at(8)) - 48;
+        activetile = dynamic_cast<Active*> (dm.findTile(posobj));
+        
+        activetile->setPassive(passivetile);
+    }    
 }

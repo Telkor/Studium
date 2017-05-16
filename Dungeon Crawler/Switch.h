@@ -12,7 +12,9 @@ using namespace std;
 class Switch : public Active{
     
 public:
-       
+    Switch();
+    void setPassive(Passive* m_pPointer);
+    bool getStatus();
     char printSwitch();
     
 private:

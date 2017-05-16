@@ -14,12 +14,11 @@ class Active : public Tile{
 
 public: 
               
-    void setPassive(Passive* m_pPointer);
+    virtual void setPassive(Passive* m_pPointer);
     //void setStatus(bool m_status);
-    bool getStatus();
+    virtual bool getStatus();
     
 private:
-    
     Passive* pPointer; 
     bool status;
   

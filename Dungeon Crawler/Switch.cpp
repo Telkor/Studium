@@ -6,6 +6,14 @@
 
 using namespace std;
 
+void Switch::setPassive(Passive* m_pPointer){
+  
+}
+
+bool Switch::getStatus(){
+    
+}
+
 char Switch::printSwitch(){
     if(Active::getStatus() == true){
         return '!';

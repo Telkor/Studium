@@ -2,14 +2,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cstdlib>
 #include "ConsoleController.h"
 
-
+using namespace std;
 
 
 char ConsoleController::move(){
-    /*   
+     
     char c;
     bool exit = false;
     
@@ -24,7 +23,7 @@ char ConsoleController::move(){
         case 'd': return 'd';
         default : return 0;
     }    
-    }*/ 
+    }
     
 }
 
