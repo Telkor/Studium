@@ -11,13 +11,18 @@ Floor::Floor() : Tile(){
 }
 
 void Floor::onLeave(Tile* toTile){
+    toTile->onEnter(getCharacter(), this);      
     
 }
 
 void Floor::onEnter(Character* c, Tile* fromTile){
-    
+    setCharacter(c);
+    fromTile->setCharacter(nullptr);
 }
 
 void Floor::print(){
-    cout << ".";
+    if (hasCharacter() == true)
+        cout << getCharacter()->getZeichen();
+    else
+        cout << ".";
 }

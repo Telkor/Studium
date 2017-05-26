@@ -44,7 +44,8 @@ void Tile::onLeave(Tile* toTile){ //Figur wird auf die Kachel "toTile" geschoben
     if(toTile->hasCharacter() == false && toTile->getTile() == Floor){
         toTile->onEnter(held, this);      
         held = nullptr;
-    }
+    } 
+        
 }   
     
 
@@ -54,10 +55,11 @@ void Tile::onEnter(Character* c, Tile* fromTile){ //simuliert das "Ankommen" der
 }
 
 void Tile::print(){
-    if (typ == Tile::Wall)
-        cout << "#";
-    if (typ == Tile::Floor)
-        cout << ".";
     if (hasCharacter() == true)
-        cout << "A";
+       cout << held->getZeichen();
+    else if (typ == Tile::Wall)
+        cout << "#";
+    else if (typ == Tile::Floor)
+        cout << ".";
+    
 }

@@ -20,7 +20,7 @@ public:
 
 
 private:
-    
+    //Character* held = new Character;
     
 };
 

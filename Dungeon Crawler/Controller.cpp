@@ -4,9 +4,11 @@
 #include <vector>
 #include "Controller.h"
 
-
-
+Controller::Controller(){
+    
+}
 
 Controller::Controller(Character* m_character){
     character = m_character;
 }
+

@@ -19,7 +19,7 @@ public:
 private:
     DungeonMap dm;
     vector<Character*> spielfiguren;
-    int spielEnde = 10;
+    int spielEnde = 100;
 };
 
 

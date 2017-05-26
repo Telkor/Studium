@@ -20,3 +20,11 @@ void Passive::setStatus(bool m_status){
 bool Passive::getStatus(){
     return status;
 }
+
+void Passive::onEnter(Character* c, Tile* fromTile){
+    
+}
+
+void Passive::onLeave(Tile* toTile){
+    
+}

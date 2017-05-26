@@ -7,10 +7,21 @@
 using namespace std;
 
 void Door::print(){
-    if(Passive::getStatus() == true){
+    if(getStatus() == false){
         cout << "X";
     }
     else{
         cout << "/";
     }
+}
+
+void Door::onEnter(Character* c, Tile* fromTile){
+    if (Passive::getStatus() == false)
+        fromTile->onEnter(c, this);
+    else 
+        fromTile->setCharacter(c);
+} 
+
+void Door::onLeave(Tile* toTile){
+    toTile->onEnter(getCharacter(), this);
 }

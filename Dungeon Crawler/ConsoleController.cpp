@@ -7,10 +7,10 @@
 using namespace std;
 
 
-/*ConsoleController::ConsoleController() : Controller(){
+ConsoleController::ConsoleController(Character* c) : Controller(c){
     
     
-}*/
+}
 
 char ConsoleController::move(){
      

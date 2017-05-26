@@ -17,8 +17,11 @@ public:
        //Passive();
        void setStatus(bool m_status);
        bool getStatus();
+       void onEnter(Character* c, Tile* fromTile);
+       void onLeave(Tile* toTile) override;
+       
 private:
-      bool status;      
+      bool status = false;      
   
 };
 

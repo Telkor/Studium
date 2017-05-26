@@ -8,10 +8,12 @@
 #include <cstdlib>
 #include "Controller.h"
 
+
+
 class ConsoleController : public Controller{
 
 public:
-    //ConsoleController();
+    ConsoleController(Character* c);
     char move() override;
     
         

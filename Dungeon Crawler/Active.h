@@ -18,10 +18,11 @@ public:
     void setStatus(bool m_status);
     virtual bool getStatus();
     //virtual void onLeave(Tile* toTile);
-    virtual void onEnter(Character* c, Tile* fromTile);
+    virtual void onEnter(Character* c, Tile* fromTile) = 0;
+    virtual void onLeave(Tile* toTile) = 0;
     
 private:
-    Passive* pPointer; 
+    Passive* pPointer = new Passive; 
     bool status;
     Character* held;
   

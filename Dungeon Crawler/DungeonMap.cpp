@@ -64,10 +64,10 @@ DungeonMap::DungeonMap(int height, int width, const vector<string>& data){ //ini
         for (int j = 0; j < width; j++){
            
             if (data.at(i).at(j) == '.') {
-        		Spielwelt[i][j] = new Tile(Tile::Floor);
+        		Spielwelt[i][j] = new /*Tile(Tile::*/Floor;
 	    } 
             if (data.at(i).at(j) == '#')   {
-                        Spielwelt[i][j] = new Tile(Tile::Wall);
+                        Spielwelt[i][j] = new /*Tile(Tile::*/Wall;
                     }
             if (data.at(i).at(j) == 'D')
                 Spielwelt[i][j] = new Door();
@@ -117,6 +117,7 @@ void DungeonMap::place(Position pos, Character* c){ //Spielfigur c auf der Kache
 }
 
 Tile* DungeonMap::findTile(Position pos) const{ //liefert Zeiger auf die Kachel an der angegebenen Position pos
+    cout << pos.m_height << " " << pos.m_width << endl;
     Tile* t = Spielwelt[pos.m_height][pos.m_width];
     return t;
 }
@@ -137,7 +138,7 @@ Position DungeonMap::findTile(Tile* t) const{  //ermittelt die Position von Kach
 }
 
 void DungeonMap::print(){ //Ausgabe der Spielwelt
-    Character* c = new Character('2');
+    Character* c = new Character('A');
   
     
     for (int i = 0; i < hoehe; i++){

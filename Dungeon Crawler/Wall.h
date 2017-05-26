@@ -13,14 +13,11 @@ using namespace std;
 class Wall : public Tile{
 
 public: 
-    void onLeave(Tile* toTile);
     void onEnter(Character* c, Tile* fromTile);
     void print() override;
                 
-        
 private:
             
-    
     
 };
 

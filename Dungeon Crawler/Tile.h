@@ -25,7 +25,7 @@ public:
     virtual void print();
     
     
-private:
+protected:
     TileTyp typ;
     Character* held = nullptr; // Eigentlich Private (wichtig!!!))
     

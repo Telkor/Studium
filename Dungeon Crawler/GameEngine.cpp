@@ -9,8 +9,8 @@ GameEngine::GameEngine(int height, int width, const vector<string>& data, vector
     Character* c = new Character('8');
     spielfiguren.push_back(c);
     Position pos;
-    pos.m_height = 5;
-    pos.m_width = 5;
+    pos.m_height = 7;
+    pos.m_width = 7;
     dm.place(pos, c);
     linker(info);
 }
@@ -36,7 +36,7 @@ void GameEngine::turn(){
         dm.print();
         
         Position pos;
-                
+        
         pos = dm.findCharacter(spielfiguren.at(i)); 
         //cout << pos.m_height;
  
@@ -74,9 +74,10 @@ void GameEngine::turn(){
                 default:
                             break;
         }
+        cout << newPos.m_height << " " << newPos.m_width << endl;
     } 
     spielEnde--;
-
+    
 }
 
 void GameEngine::linker(vector<string>& info){

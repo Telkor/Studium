@@ -5,6 +5,7 @@
 #include <vector>
 #include <cstdlib>
 #include "Controller.h"
+#include "ConsoleController.h"
 
 
 class Character{
@@ -14,9 +15,10 @@ public:
     Character(char zeichenart);
     char move();
     char getZeichen() const;
+    void setZeichen(char q);
     
 private:
-    char zeichen;
+    char zeichen = '8';
     Controller* controller;
     
 };

@@ -14,10 +14,11 @@ Character::Character(){
 
 Character::Character(char zeichenart){
     zeichen = zeichenart;
+    controller = new ConsoleController(this);
 }  
     
 char Character::move(){
-    controller->move();
+    return controller->move();
     
     /*
     char c;
@@ -39,4 +40,8 @@ char Character::move(){
 
 char Character::getZeichen() const{
     return zeichen;
+}
+
+void Character::setZeichen(char q){
+    zeichen = q;
 }
