@@ -12,8 +12,11 @@ Character::Character(){
     
 }
 
-Character::Character(char zeichenart){
+Character::Character(char zeichenart, int m_strength, int m_stamina, int m_hitpoints){
     zeichen = zeichenart;
+    strength = m_strength;
+    stamina = m_stamina;
+    hitpoints = getMaxHP();
     controller = new ConsoleController(this);
 }  
     
@@ -44,4 +47,36 @@ char Character::getZeichen() const{
 
 void Character::setZeichen(char q){
     zeichen = q;
+}
+
+int Character::getMaxHP(){
+    20 + (stamina * 5);
+}
+
+void Character::showInfo(){
+    cout << "Staerke: " << strength;
+    cout << "Ausdauer: " << stamina;
+    cout << "HP: " << hitpoints;
+}
+
+void Character::addItem(Item* m_items){
+    items.push_back(m_items);
+}
+
+int Character::getStrength(){
+   
+    for(int i = 0; i < items.size(); i++){
+       strength += items.at(i)->modifyStrength(strength); 
+       
+    }
+    
+    return strength;
+}
+
+int Character::getStamina(){
+    for(int i = 0; i < items.size(); i++){
+        stamina += items.at(i)->modifyStamina(stamina);
+    }
+    
+    return stamina;
 }
