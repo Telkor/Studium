@@ -27,8 +27,13 @@ void Switch::onEnter(Character* c, Tile* fromTile){
     setStatus(true);
     fromTile->setCharacter(nullptr);
     setCharacter(c);
+    
+    
+    
 }
 
+
 void Switch::onLeave(Tile* toTile){
-    toTile->onEnter(getCharacter(), this);
+    
+    toTile->onEnter(getCharacter(), this); 
 } 

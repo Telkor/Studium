@@ -6,7 +6,7 @@ using namespace std;
 GameEngine::GameEngine(int height, int width, const vector<string>& data, vector<string> info): dm(height,width,data) {
             
     
-    Character* c = new Character('8');
+    Character* c = new Character('8', 5, 10, 15);
     spielfiguren.push_back(c);
     Position pos;
     pos.m_height = 7;
@@ -70,8 +70,13 @@ void GameEngine::turn(){
                             newTile = dm.findTile(newPos);
                             oldTile->onLeave(newTile);
                             break;                    
-                
+                            
+                case 'r':  
+                            cout << "test";
+                            break;            
+                            
                 default:
+          
                             break;
         }
         cout << newPos.m_height << " " << newPos.m_width << endl;

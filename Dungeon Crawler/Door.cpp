@@ -6,6 +6,7 @@
 
 using namespace std;
 
+
 void Door::print(){
     if(getStatus() == false){
         cout << "X";

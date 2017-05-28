@@ -12,6 +12,13 @@ Character::Character(){
     
 }
 
+Character::~Character(){
+    delete[] controller;
+    for(int i = 0; i < items.size(); i++){
+        delete items.at(i);
+    }
+}
+
 Character::Character(char zeichenart, int m_strength, int m_stamina, int m_hitpoints){
     zeichen = zeichenart;
     strength = m_strength;
@@ -22,7 +29,7 @@ Character::Character(char zeichenart, int m_strength, int m_stamina, int m_hitpo
     
 char Character::move(){
     return controller->move();
-    
+ 
     /*
     char c;
     bool exit = false;
@@ -50,7 +57,7 @@ void Character::setZeichen(char q){
 }
 
 int Character::getMaxHP(){
-    20 + (stamina * 5);
+    20 + (getStamina() * 5);
 }
 
 void Character::showInfo(){

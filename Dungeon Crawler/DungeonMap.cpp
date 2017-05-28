@@ -138,7 +138,7 @@ Position DungeonMap::findTile(Tile* t) const{  //ermittelt die Position von Kach
 }
 
 void DungeonMap::print(){ //Ausgabe der Spielwelt
-    Character* c = new Character('A');
+    Character* c = new Character('A', 5, 10, 15); //?
   
     
     for (int i = 0; i < hoehe; i++){

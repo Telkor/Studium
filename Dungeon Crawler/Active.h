@@ -21,10 +21,11 @@ public:
     virtual void onEnter(Character* c, Tile* fromTile) = 0;
     virtual void onLeave(Tile* toTile) = 0;
     
+    
 private:
     Passive* pPointer = new Passive; 
     bool status;
-    Character* held;
+    Character* held = new Character;
   
 };
 #endif	/* ACTIVE_H */

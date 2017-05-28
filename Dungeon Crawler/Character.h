@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include "Controller.h"
 #include "ConsoleController.h"
+#include "StationaryController.h"
 #include "Item.h"
 
 using namespace std;
@@ -14,6 +15,7 @@ class Character{
 
 public:
     Character();
+    ~Character();
     Character(char zeichenart, int m_strength, int m_stamina, int m_hitpoints);
     char move();
     char getZeichen() const;
