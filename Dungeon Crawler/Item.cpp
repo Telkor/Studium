@@ -14,6 +14,7 @@ int Arming_Sword::modifyStamina(int stamina){
 }
 
 int Arming_Sword::modifyStrength(int strength){
+    return strength + 3;
     return 3;
 }
 

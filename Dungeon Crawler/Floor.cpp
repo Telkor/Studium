@@ -10,10 +10,6 @@ Floor::Floor() : Tile(){
    
 }
 
-Floor::Floor(Item* m_item) : Tile(){
-    item = m_item;
-}
-
 void Floor::onLeave(Tile* toTile){
     toTile->onEnter(getCharacter(), this);      
     
@@ -22,13 +18,14 @@ void Floor::onLeave(Tile* toTile){
 void Floor::onEnter(Character* c, Tile* fromTile){
     setCharacter(c);
     fromTile->setCharacter(nullptr);
+    setItem(nullptr);
 }
 
 void Floor::print(){
     if (hasCharacter() == true)
         cout << getCharacter()->getZeichen();
     
-    else if (item != nullptr ){
+    else if (getItem() != nullptr ){
         cout << "*";
     }
     

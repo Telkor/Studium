@@ -12,18 +12,18 @@ Tile::Tile(Character* character){
     held = character;
 }
 
-Tile::Tile(TileTyp typart){
+/* Tile::Tile(TileTyp typart){
     typ = typart;
-    held = nullptr;
-}
+    held = nullptr;  
+} */
 
 Tile::~Tile(){
     held = nullptr;
 }
 
-Tile::TileTyp Tile::getTile() const{
+/* Tile::TileTyp Tile::getTile() const{
     return typ;
-}
+} */
 
 Character* Tile::getCharacter() const{
     return held;
@@ -41,7 +41,7 @@ void Tile::setCharacter(Character* heldfigur){
 }
 
 void Tile::onLeave(Tile* toTile){ //Figur wird auf die Kachel "toTile" geschoben
-    if(toTile->hasCharacter() == false && toTile->getTile() == Floor){
+    if(toTile->hasCharacter() == false){
         toTile->onEnter(held, this);      
         held = nullptr;
     } 
@@ -55,11 +55,19 @@ void Tile::onEnter(Character* c, Tile* fromTile){ //simuliert das "Ankommen" der
 }
 
 void Tile::print(){
-    if (hasCharacter() == true)
+ /*    if (hasCharacter() == true)
        cout << held->getZeichen();
     else if (typ == Tile::Wall)
         cout << "#";
     else if (typ == Tile::Floor)
-        cout << ".";
+        cout << "."; */
     
+}
+
+void Tile::setItem(Item* i){
+    item = i;
+}
+
+Item* Tile::getItem(){
+    return item;
 }

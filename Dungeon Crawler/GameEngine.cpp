@@ -3,16 +3,16 @@
 
 using namespace std;
 
-GameEngine::GameEngine(int height, int width, const vector<string>& data, vector<string> info): dm(height,width,data) {
+GameEngine::GameEngine(int height, int width, const vector<string>& data, vector<string> info, vector<string>& specialTiles): dm(height,width,data) {
             
-    
-    Character* c = new Character('8', 5, 10, 15);
-    spielfiguren.push_back(c);
+    //Character* c = new Character('8', 5, 10);
+    //spielfiguren.push_back(c);
     Position pos;
     pos.m_height = 7;
     pos.m_width = 7;
-    dm.place(pos, c);
+    //dm.place(pos, c);
     linker(info);
+    link(specialTiles);
 }
 
 GameEngine::~GameEngine(){
@@ -33,6 +33,8 @@ void GameEngine::run(){
 
 void GameEngine::turn(){
     for (int i = 0; i < spielfiguren.size(); i++){
+        bool exit = false;
+        
         dm.print();
         
         Position pos;
@@ -74,12 +76,41 @@ void GameEngine::turn(){
                 case 'r':  
                             cout << "test";
                             break;            
+                
+                case 'g':   
+                            
+                            int eingabe;
+                          
+                            while(true){
+                            cout << "1. Spielerinfos anzeigen" << "\n";
+                            cout << "2. Zurueck zum Spiel" << "\n";
+                            cout << "3. Spiel beenden" << "\n";
+                            
+                            cin >> eingabe;
+                             
+                            if(eingabe == 1){
+                              spielfiguren.at(i)->showInfo();  
+                            }
+                            
+                            if(eingabe == 2){
+                              break;  
+                            }
+                            
+                            if(eingabe == 3){
+                                spielEnde = 0;
+                                exit = true;
+                                break;
+                            }
+                            
+                            }             
                             
                 default:
           
                             break;
         }
         cout << newPos.m_height << " " << newPos.m_width << endl;
+        if (exit)
+            break;
     } 
     spielEnde--;
     
@@ -102,4 +133,92 @@ void GameEngine::linker(vector<string>& info){
         
         activetile->setPassive(passivetile);
     }    
+}
+
+void GameEngine::link(vector<string> &specialTiles){
+    Active* activetile;
+    Passive* passivetile;
+    Position posobj;
+    string tmp;
+    string obj;
+    size_t spos;
+    char zeichen;
+    size_t tpos;
+    
+    for (int i = 0; i < specialTiles.size();  i++){
+        tmp = static_cast<string> (specialTiles.at(i));
+        spos = tmp.find(" ");
+        obj = tmp.substr(0, spos);
+        tmp = tmp.substr(spos+1, tmp.length());
+        tpos = ++spos;
+        
+        
+        if (obj == "Character"){
+            zeichen = static_cast<char> (specialTiles.at(i).at(tpos));
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos+1, tmp.length());
+            tpos += ++spos;
+            int strength = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos + 1, tmp.length());
+            tpos += ++spos;
+            int stamina = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos + 1, tmp.length());           
+            tpos += ++spos;
+            spos = tmp.find(" ");
+            obj = tmp.substr(0, spos);
+            
+            tmp = tmp.substr(spos + 1, tmp.length());
+            tpos += ++spos;
+            posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos + 1, tmp.length());
+            tpos += ++spos;
+            posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            
+            
+            
+            
+            if (obj == "ConsoleController"){
+                Character* c = new Character(zeichen, strength, stamina, false);
+                dm.place(posobj, c);
+                spielfiguren.push_back(c);
+            }
+            if (obj == "StationaryController"){
+                Character* c = new Character(zeichen, strength, stamina, true);
+                dm.place(posobj, c);
+                spielfiguren.push_back(c);
+            }
+        }
+    
+        if (obj == "Greatsword"){
+            posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos+1, tmp.length());
+            tpos += ++spos;            
+            posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            
+            Greatsword* gs = new Greatsword();
+            dm.placeItem(gs, posobj);
+        }
+        
+        if (obj == "Door"){
+            posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos+1, tmp.length());
+            tpos += ++spos;            
+            posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            
+            
+        }
+        
+        if (obj == "Trap"){
+            posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos+1, tmp.length());
+            tpos += ++spos;            
+            posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+        }
+    }
 }

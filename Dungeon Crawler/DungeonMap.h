@@ -40,6 +40,7 @@ public:
     Tile* findTile(Position pos) const;
     Position findCharacter(Character* c);
     void print();
+    void placeItem(Item* i, Position pos);
     
     
 private:

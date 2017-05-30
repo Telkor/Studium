@@ -18,6 +18,9 @@ void Switch::print(){
     if(Active::getStatus() == true){
         cout << "!";
     }
+    else if(Active::hasCharacter() == true)
+        cout << Active::getCharacter()->getZeichen();
+    
     else{
         cout << "?";
     }

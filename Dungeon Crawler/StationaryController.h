@@ -11,6 +11,7 @@
 class StationaryController : public Controller{
 
 public:
+    StationaryController();
     StationaryController(Character* c);
     char move() override;
     

@@ -19,16 +19,25 @@ Character::~Character(){
     }
 }
 
-Character::Character(char zeichenart, int m_strength, int m_stamina, int m_hitpoints){
+Character::Character(char zeichenart, int m_strength, int m_stamina, bool m_isKI){
     zeichen = zeichenart;
     strength = m_strength;
     stamina = m_stamina;
     hitpoints = getMaxHP();
     controller = new ConsoleController(this);
+    stat = new StationaryController(this);
+    cons = new ConsoleController(this);
+    isKI = m_isKI;
+    
 }  
     
 char Character::move(){
-    return controller->move();
+    if (isKI == true)
+        return stat->move();
+    else 
+        return cons->move();
+   
+    //controller->move();
  
     /*
     char c;
@@ -57,13 +66,13 @@ void Character::setZeichen(char q){
 }
 
 int Character::getMaxHP(){
-    20 + (getStamina() * 5);
+    return 20 + (getStamina() * 5);
 }
 
 void Character::showInfo(){
-    cout << "Staerke: " << strength;
-    cout << "Ausdauer: " << stamina;
-    cout << "HP: " << hitpoints;
+    cout << "Staerke: " << strength << "\n";
+    cout << "Ausdauer: " << stamina << "\n"; 
+    cout << "HP: " << hitpoints << "\n";
 }
 
 void Character::addItem(Item* m_items){

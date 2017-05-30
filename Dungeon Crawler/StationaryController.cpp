@@ -6,6 +6,10 @@
 
 using namespace std;
 
+StationaryController::StationaryController() : Controller(){
+    
+}
+
 StationaryController::StationaryController(Character* c) : Controller(c){
     
     

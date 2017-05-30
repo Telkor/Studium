@@ -16,7 +16,7 @@ class Character{
 public:
     Character();
     ~Character();
-    Character(char zeichenart, int m_strength, int m_stamina, int m_hitpoints);
+    Character(char zeichenart, int m_strength, int m_stamina, bool m_isKI);
     char move();
     char getZeichen() const;
     void setZeichen(char q);
@@ -33,6 +33,9 @@ private:
     int stamina;
     int hitpoints;
     vector<Item*> items;
+    bool isKI;
+    StationaryController* stat;
+    ConsoleController* cons;
 };
 
 

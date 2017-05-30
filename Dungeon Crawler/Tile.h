@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "Character.h"
+#include "Item.h"
 
 using namespace std;
 
@@ -13,9 +14,9 @@ public:
     Tile();
     virtual ~Tile();
     Tile(Character* character);
-    enum TileTyp{Floor, Wall};
-    Tile(TileTyp typart);
-    TileTyp getTile() const;
+    //enum TileTyp{Floor, Wall};
+    //Tile(TileTyp typart);
+    //TileTyp getTile() const;
     Character* getCharacter() const;
     bool hasCharacter() const;
     void setCharacter(Character* heldfigur);
@@ -23,10 +24,12 @@ public:
     virtual void onEnter(Character* c, Tile* fromTile);
     //Character* held = nullptr; // Eigentlich Private (wichtig!!!))
     virtual void print();
+    void setItem(Item* i);
+    Item* getItem();
     
     
-protected:
-    TileTyp typ;
+private:
+    //TileTyp typ;
     Character* held = nullptr; // Eigentlich Private (wichtig!!!))
-    
+    Item* item;
 };

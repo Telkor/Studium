@@ -19,10 +19,9 @@ public:
     void onLeave(Tile* toTile);
     void onEnter(Character* c, Tile* fromTile);
     virtual void print() override;
-
+    
 
 private:
-    Item* item;
     //Character* held = new Character;
     
 };

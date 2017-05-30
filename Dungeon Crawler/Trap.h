@@ -15,9 +15,6 @@ class Trap : public Floor{
         Trap();
         bool setTriggered(bool m_triggered);
         void print() override;
-        void onEnter(Character* c, Tile* fromTile);
-        void onLeave(Tile* toTile);
-        bool getTriggered();
         
     private:
         bool triggered;
