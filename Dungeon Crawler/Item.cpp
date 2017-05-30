@@ -19,6 +19,7 @@ int Arming_Sword::modifyStrength(int strength){
 }
 
 int Greatsword::modifyStamina(int stamina){
+    
     return -1;
 }
 

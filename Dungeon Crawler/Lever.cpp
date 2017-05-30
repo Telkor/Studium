@@ -10,10 +10,6 @@ void Lever::setPassive(Passive* m_pPointer){
   
 }
 
-bool Lever::getStatus(){
-    
-}
-
 void Lever::print(){
     if(Active::getStatus() == true){
         cout << "!";
@@ -24,7 +20,10 @@ void Lever::print(){
 }
 
 void Lever::onEnter(Character* c, Tile* fromTile){
-    setStatus(true);
+    if (Active::getStatus() == true)
+        Active::setStatus(false);
+    else 
+        Active::setStatus(true);
     fromTile->setCharacter(nullptr);
     setCharacter(c);
 }

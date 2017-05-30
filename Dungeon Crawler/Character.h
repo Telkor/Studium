@@ -25,6 +25,7 @@ public:
     void addItem(Item* items);
     int getStrength();
     int getStamina();
+    void damage(int i);
     
 private:
     char zeichen = '8';

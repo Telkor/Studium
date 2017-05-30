@@ -19,6 +19,7 @@ public:
     void onLeave(Tile* toTile);
     void onEnter(Character* c, Tile* fromTile);
     virtual void print() override;
+    bool isTransparent() override;
     
 
 private:

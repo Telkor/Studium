@@ -44,6 +44,10 @@ void Tile::onLeave(Tile* toTile){ //Figur wird auf die Kachel "toTile" geschoben
     if(toTile->hasCharacter() == false){
         toTile->onEnter(held, this);      
         held = nullptr;
+        
+     
+           
+        
     } 
         
 }   
@@ -51,7 +55,7 @@ void Tile::onLeave(Tile* toTile){ //Figur wird auf die Kachel "toTile" geschoben
 
 void Tile::onEnter(Character* c, Tile* fromTile){ //simuliert das "Ankommen" der Figur 
     held = c;
-   
+      
 }
 
 void Tile::print(){
@@ -70,4 +74,8 @@ void Tile::setItem(Item* i){
 
 Item* Tile::getItem(){
     return item;
+}
+
+bool Tile::isTransparent(){
+    return true;
 }

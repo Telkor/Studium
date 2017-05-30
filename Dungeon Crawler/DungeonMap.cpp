@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 #include "DungeonMap.h"
+#include "Trap.h"
+#include "Lever.h"
 
 using namespace std;
 
@@ -64,16 +66,22 @@ DungeonMap::DungeonMap(int height, int width, const vector<string>& data){ //ini
         for (int j = 0; j < width; j++){
            
             if (data.at(i).at(j) == '.') {
-        		Spielwelt[i][j] = new /*Tile(Tile::*/Floor;
+        		Spielwelt[i][j] = new Floor;
 	    } 
             if (data.at(i).at(j) == '#')   {
-                        Spielwelt[i][j] = new /*Tile(Tile::*/Wall;
+                        Spielwelt[i][j] = new Wall;
                     }
             if (data.at(i).at(j) == 'D')
                 Spielwelt[i][j] = new Door();
             
             if (data.at(i).at(j) == 'S')
                 Spielwelt[i][j] = new Switch();
+            
+            if (data.at(i).at(j) == 'T')
+                Spielwelt[i][j] = new Trap();
+            
+            if (data.at(i).at(j) == 'L')
+                Spielwelt[i][j] = new Lever();
         }
     }              
 }
@@ -163,4 +171,8 @@ void DungeonMap::print(){ //Ausgabe der Spielwelt
 
 void DungeonMap::placeItem(Item* i, Position pos){
     Spielwelt[pos.m_height][pos.m_width]->setItem(i);
+}
+
+bool DungeonMap::hasLineOfSight(Position from, Position to){
+    
 }

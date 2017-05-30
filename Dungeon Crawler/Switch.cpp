@@ -10,9 +10,6 @@ void Switch::setPassive(Passive* m_pPointer){
   
 }
 
-bool Switch::getStatus(){
-    
-}
 
 void Switch::print(){
     if(Active::getStatus() == true){
@@ -27,7 +24,7 @@ void Switch::print(){
 }
 
 void Switch::onEnter(Character* c, Tile* fromTile){
-    setStatus(true);
+    Active::setStatus(true);
     fromTile->setCharacter(nullptr);
     setCharacter(c);
     

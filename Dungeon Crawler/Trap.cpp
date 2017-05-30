@@ -35,20 +35,19 @@ void Trap::onEnter(Character* c, Tile* fromTile){
     if(getTriggered() == false){
         fromTile->setCharacter(nullptr);
         setCharacter(c);
-        c->getMaxHP() - 20;
+        c->damage(20);
         setTriggered(true);
+        cout << "Du bist auf eine Falle getreten und hast 20 HP verloren!" << "\n";
     }
     
     else{
         fromTile->setCharacter(nullptr);
         setCharacter(c);
-        setTriggered(true);
     }
     
     
     
 }
-
 
 void Trap::onLeave(Tile* toTile){
     

@@ -1,17 +1,14 @@
 #include "GameEngine.h"
 #include "Active.h"
+#include "Trap.h"
 
 using namespace std;
 
-GameEngine::GameEngine(int height, int width, const vector<string>& data, vector<string> info, vector<string>& specialTiles): dm(height,width,data) {
+
+
+GameEngine::GameEngine(int height, int width, const vector<string>& data, vector<string>& specialTiles): dm(height,width,data) {
             
-    //Character* c = new Character('8', 5, 10);
-    //spielfiguren.push_back(c);
-    Position pos;
-    pos.m_height = 7;
-    pos.m_width = 7;
-    //dm.place(pos, c);
-    linker(info);
+    //linker(info);
     link(specialTiles);
 }
 
@@ -209,16 +206,35 @@ void GameEngine::link(vector<string> &specialTiles){
             tmp = tmp.substr(spos+1, tmp.length());
             tpos += ++spos;            
             posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
-            
-            
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos+1, tmp.length());
+            tpos += ++spos;
+            passivetile = dynamic_cast<Passive*> (dm.findTile(posobj));
+            spos = tmp.find(" ");
+            obj = tmp.substr(0, spos);
+            tmp = tmp.substr(spos + 1, tmp.length());
+            tpos += ++spos;
+            posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos + 1, tmp.length());
+            tpos += ++spos;
+            posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            activetile = dynamic_cast<Active*> (dm.findTile(posobj));
+        
+            activetile->setPassive(passivetile);
         }
         
         if (obj == "Trap"){
+            Trap* trap;
+            
             posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
             spos = tmp.find(" ");
             tmp = tmp.substr(spos+1, tmp.length());
             tpos += ++spos;            
             posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+        
+            trap = dynamic_cast<Trap*> (dm.findTile(posobj));
         }
     }
 }
+

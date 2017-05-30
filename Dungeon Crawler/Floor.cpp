@@ -16,9 +16,17 @@ void Floor::onLeave(Tile* toTile){
 }
 
 void Floor::onEnter(Character* c, Tile* fromTile){
+    if (hasCharacter() == false){
     setCharacter(c);
     fromTile->setCharacter(nullptr);
+    if (getItem() != nullptr)
+        c->addItem(getItem());
     setItem(nullptr);
+    }
+    else 
+        fromTile->setCharacter(c);
+    
+    
 }
 
 void Floor::print(){
@@ -33,4 +41,8 @@ void Floor::print(){
         cout << ".";  
     }
         
+}
+
+bool Floor::isTransparent(){
+    return true;
 }

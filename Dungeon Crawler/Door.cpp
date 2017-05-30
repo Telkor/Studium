@@ -26,3 +26,11 @@ void Door::onEnter(Character* c, Tile* fromTile){
 void Door::onLeave(Tile* toTile){
     toTile->onEnter(getCharacter(), this);
 }
+
+bool Door::isTransparent(){
+    if (Passive::getStatus() == false)
+        return false;
+    else  
+        return true;
+    
+}

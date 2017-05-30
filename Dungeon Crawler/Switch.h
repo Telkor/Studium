@@ -14,7 +14,6 @@ class Switch : public Active{
 public:
     //Switch();
     void setPassive(Passive* m_pPointer);
-    bool getStatus();
     void print() override;
     void onEnter(Character* c, Tile* fromTile);
     void onLeave(Tile* toTile);

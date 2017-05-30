@@ -70,8 +70,8 @@ int Character::getMaxHP(){
 }
 
 void Character::showInfo(){
-    cout << "Staerke: " << strength << "\n";
-    cout << "Ausdauer: " << stamina << "\n"; 
+    cout << "Staerke: " << getStrength() << "\n";
+    cout << "Ausdauer: " << getStamina() << "\n"; 
     cout << "HP: " << hitpoints << "\n";
 }
 
@@ -80,19 +80,27 @@ void Character::addItem(Item* m_items){
 }
 
 int Character::getStrength(){
-   
+    int m_strength = strength;
+    cout << "Itemanzahl: " << items.size() << "\n";
     for(int i = 0; i < items.size(); i++){
-       strength += items.at(i)->modifyStrength(strength); 
+       m_strength += items.at(i)->modifyStrength(strength); 
        
     }
     
-    return strength;
+    return m_strength;
 }
 
 int Character::getStamina(){
+    int m_stamina = stamina;
+    
     for(int i = 0; i < items.size(); i++){
-        stamina += items.at(i)->modifyStamina(stamina);
+        
+        m_stamina += items.at(i)->modifyStamina(stamina);
     }
     
-    return stamina;
+    return m_stamina;
+}
+
+void Character::damage(int i){
+    hitpoints -= i;
 }

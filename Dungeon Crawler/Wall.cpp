@@ -14,3 +14,7 @@ void Wall::onEnter(Character* c, Tile* fromTile){
 void Wall::print(){
     cout << "#";
 }
+
+bool Wall::isTransparent(){
+    return false;
+}

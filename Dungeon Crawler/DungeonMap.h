@@ -41,6 +41,7 @@ public:
     Position findCharacter(Character* c);
     void print();
     void placeItem(Item* i, Position pos);
+    bool hasLineOfSight(Position from, Position to);
     
     
 private:

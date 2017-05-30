@@ -15,6 +15,7 @@ class Wall : public Tile{
 public: 
     void onEnter(Character* c, Tile* fromTile);
     void print() override;
+    bool isTransparent() override;
                 
 private:
             
