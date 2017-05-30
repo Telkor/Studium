@@ -1,6 +1,7 @@
 #include "GameEngine.h"
 #include "Active.h"
 #include "Trap.h"
+#include "StationaryController.h"
 
 using namespace std;
 
@@ -31,13 +32,18 @@ void GameEngine::run(){
 void GameEngine::turn(){
     for (int i = 0; i < spielfiguren.size(); i++){
         bool exit = false;
+        Position pos;
+        
+        
         
         dm.print();
         
-        Position pos;
+        
         
         pos = dm.findCharacter(spielfiguren.at(i)); 
         //cout << pos.m_height;
+        
+        
  
         Tile* oldTile = dm.findTile(pos);
         
@@ -98,6 +104,8 @@ void GameEngine::turn(){
                                 exit = true;
                                 break;
                             }
+                            
+                            
                             
                             }             
                             

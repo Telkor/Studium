@@ -10,13 +10,25 @@
 using namespace std;
 
 void loadFromFile(string filename){
+    vector<string> data;
+    vector<string> links;
     ifstream saveGame;
+    int hoehe;
+    int breite;
     string line;
     saveGame.open("level1.txt");
     
     if(saveGame.good()){
         while(getline(saveGame,line)){
+            //links.push_back(line);
             cout << line << "\n";
+        
+        
+       /* for(int i = 0; i < hoehe; i++){
+            getline(saveGame, line);
+                data.push_back(line);
+        }*/
+        
         }
         saveGame.close();  
     }
@@ -48,11 +60,21 @@ int main() {
         "#.D................#", 
         "#..................#", 
         "#..................#", 
+        "####.###...####.####",
+        "###.#####..#########",
+        "###.######.#########",
+        "##########.#########",
+        "##########.#########",
+        "#########...########",
+        "########.....########",
+        "######.........######",
+        "####################",
+        "####################",
         "####################",}; 
        
        loadFromFile("level1.txt");
         
-       GameEngine ge(10,20,data, specialTiles);
+       GameEngine ge(20,20,data, specialTiles);
        
        ge.run();
     

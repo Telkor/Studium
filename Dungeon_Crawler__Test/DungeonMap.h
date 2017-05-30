@@ -40,6 +40,7 @@ public:
     Tile* findTile(Position pos) const;
     Position findCharacter(Character* c);
     void print();
+    //void print(Position mitte);
     void placeItem(Item* i, Position pos);
     bool hasLineOfSight(Position from, Position to);
     

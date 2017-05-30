@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 #include "DungeonMap.h"
 #include "Trap.h"
 #include "Lever.h"
@@ -146,13 +147,19 @@ Position DungeonMap::findTile(Tile* t) const{  //ermittelt die Position von Kach
 }
 
 void DungeonMap::print(){ //Ausgabe der Spielwelt
-    Character* c = new Character(); //?
+    Character* c = new Character(); //
   
     
     for (int i = 0; i < hoehe; i++){
         cout << endl;
         for(int j = 0; j < breite; j++){
-            Spielwelt[i][j]->print();
+           // Position charPos;
+           // charPos.m_height = i;
+            //charPos.m_width = j;
+            //if(hasLineOfSight(mitte,charPos)){
+                Spielwelt[i][j]->print();
+            
+            //Spielwelt[i][j]->print();
             
             
             
@@ -173,6 +180,27 @@ void DungeonMap::placeItem(Item* i, Position pos){
     Spielwelt[pos.m_height][pos.m_width]->setItem(i);
 }
 
-bool DungeonMap::hasLineOfSight(Position from, Position to){
+bool DungeonMap::hasLineOfSight(Position from, Position to){   
+    double x = to.m_width - from.m_width;  
+    double y = to.m_height - from.m_height;
+    double len = sqrt( (x*x) + (y*y) );
+
+    if(!len)  //eigene Tile
+        return true;
+
+    double stepx = x / len;
+    double stepy = y / len;
+
+    x = from.m_width;
+    y = from.m_height;
+    for( double i = 1; i < len; i += 1 )
+    {
+        if( Spielwelt[(int)x][(int)y]->isTransparent() == false)
+            return false;
+
+        x += stepx; 
+        y += stepy;
+    }
+    return true;
     
 }

@@ -20,7 +20,7 @@ public:
     //virtual void onLeave(Tile* toTile);
     virtual void onEnter(Character* c, Tile* fromTile) = 0;
     virtual void onLeave(Tile* toTile) = 0;
-    
+    Passive* getPassive();
     
 private:
     Passive* pPointer = new Passive; 

@@ -25,7 +25,6 @@ void Active::setStatus(bool m_status){
     pPointer->setStatus(m_status);
 }
 
-
-
-
-
+Passive* Active::getPassive(){
+    return pPointer;
+}

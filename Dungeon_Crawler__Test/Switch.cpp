@@ -27,7 +27,7 @@ void Switch::onEnter(Character* c, Tile* fromTile){
     Active::setStatus(true);
     fromTile->setCharacter(nullptr);
     setCharacter(c);
-    
+    //getPassive()->setStatus(true);
     
     
 }
