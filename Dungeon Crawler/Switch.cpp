@@ -6,11 +6,6 @@
 
 using namespace std;
 
-void Switch::setPassive(Passive* m_pPointer){
-  
-}
-
-
 void Switch::print(){
     if(Active::getStatus() == true){
         cout << "!";
@@ -27,8 +22,6 @@ void Switch::onEnter(Character* c, Tile* fromTile){
     Active::setStatus(true);
     fromTile->setCharacter(nullptr);
     setCharacter(c);
-    
-    
     
 }
 

@@ -7,6 +7,10 @@
 using namespace std;
 
 
+Door::Door() : Passive(){
+    
+}
+
 void Door::print(){
     if(getStatus() == false){
         cout << "X";
@@ -18,9 +22,11 @@ void Door::print(){
 
 void Door::onEnter(Character* c, Tile* fromTile){
     if (Passive::getStatus() == false)
-        fromTile->onEnter(c, this);
-    else 
         fromTile->setCharacter(c);
+    else {
+        setCharacter(c);
+        fromTile->setCharacter(nullptr);
+    }
 } 
 
 void Door::onLeave(Tile* toTile){

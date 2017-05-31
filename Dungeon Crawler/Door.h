@@ -12,6 +12,7 @@ using namespace std;
 class Door : public Passive{
 
 public:
+    Door();
     void print() override;
     void onLeave(Tile* toTile) override;
     void onEnter(Character* c, Tile* fromTile) override;

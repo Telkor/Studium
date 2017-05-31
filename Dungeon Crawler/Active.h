@@ -13,7 +13,7 @@ using namespace std;
 class Active : public Tile{
 
 public: 
-              
+    Active();          
     virtual void setPassive(Passive* m_pPointer);
     void setStatus(bool m_status);
     virtual bool getStatus();
@@ -23,7 +23,7 @@ public:
     
     
 private:
-    Passive* pPointer = new Passive; 
+    Passive* pPointer; 
     bool status;
     Character* held = new Character;
   

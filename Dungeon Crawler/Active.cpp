@@ -8,6 +8,10 @@
 
 using namespace std;
 
+Active::Active(){
+    pPointer = nullptr;
+}
+
 void Active::setPassive(Passive* m_pPointer){
     pPointer = m_pPointer;
 }

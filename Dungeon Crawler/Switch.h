@@ -13,7 +13,7 @@ class Switch : public Active{
     
 public:
     //Switch();
-    void setPassive(Passive* m_pPointer);
+//    void setPassive(Passive* m_pPointer);
     void print() override;
     void onEnter(Character* c, Tile* fromTile);
     void onLeave(Tile* toTile);

@@ -7,7 +7,7 @@
 using namespace std;
 
 Trap::Trap(){
-    
+    triggered = false;
 }
 
 bool Trap::setTriggered(bool m_triggered){
