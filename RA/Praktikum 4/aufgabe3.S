@@ -39,17 +39,17 @@ sortieren:
 	SUB r4, #2
 	ADD r3, #4 @listenpointer weiterschieben
     
-	outerloop:
+	aeussereSchleife:
 		LDR r3, =Liste2
 		@ADD r3, #1 @ an anfang der liste springen
 		mov r5, r4 @aktuelle anzahl der unsortieren elemente fuer innere schleife holen
     
-	innerloop:
+	innereSchleife:
 		ADD r3, #4
 		LDR r1, [r3]
 		LDR r2, [r3, #4]
     
-	check:
+	ueberpruefung:
 		cmp r2, r1 @ r1-r2 und ergebnis verwerfen
 		bmi swap @falls negativ flag, tauschen
 	
@@ -57,10 +57,10 @@ sortieren:
 		STR r1, [r3]
 		STR r2, [r3, #4]
 		subs r5, #1 @ inneren schleifenzaeahler
-		bne innerloop @falls noch nicht 0 nochmal
+		bne innereSchleife @falls noch nicht 0 nochmal
     
 		subs r4, #1 @aueﬂere schleife runterzaehlen
-		bne outerloop
+		bne aeussereSchleife
 		bal fertig
     
 	swap:
