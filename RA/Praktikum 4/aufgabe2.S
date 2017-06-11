@@ -10,15 +10,15 @@
 	.type	main,function
 	
 main:
-	ADR R1, Marke 
+	mov r6, #113
+	ADR r1, marke 
 
-
-Marke: 
+	MSR CPSR, r6
+marke: 
 	mov r0, #10 
 
 
-end:
-	bne Marke
+	bne marke
 		
 
 

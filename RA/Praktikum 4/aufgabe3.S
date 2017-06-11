@@ -18,7 +18,7 @@ kopieren:
 	LDRB r3, [r1] @Anzahl der Elemente aus Liste1
 
 loop:
-	LDRSB r0,[r1] @ lade ersten Wert
+	LDRSB r0,[r1] @ lade ersten Wert & konvertierung von 8Bit auf vorzeichenrichtige 32Bit-Zahlen
 	STR r0,[r2] @ speichere ihn in Liste2
 
 	ADD r1, #1 @ Lesezeiger verschieben
@@ -30,19 +30,44 @@ loop:
 	@ STR r0,[r2, #4] @ speichere ihn in Liste2
 	
 	bne loop
-
-
-
- 
-
-
-vorzeichen:
-@ hier Ihr Programm um die 8Bit-Zahlen auf vorzeichenrichtige 32Bit-Zahlen zu wandeln
-@ STR r1, [r2]
-		
 	
 sortieren:
-@ hier Ihr Programm um die vorzeichenrichtige Zahlen in Liste2 zu sortieren
+@bubblesort
+
+	LDR r3, =Liste2 @ listenpointer holen
+	LDRB r4, [r3] @erstes element holen aka groeﬂe
+	SUB r4, #2
+	ADD r3, #4 @listenpointer weiterschieben
+    
+	outerloop:
+		LDR r3, =Liste2
+		@ADD r3, #1 @ an anfang der liste springen
+		mov r5, r4 @aktuelle anzahl der unsortieren elemente fuer innere schleife holen
+    
+	innerloop:
+		ADD r3, #4
+		LDR r1, [r3]
+		LDR r2, [r3, #4]
+    
+	check:
+		cmp r2, r1 @ r1-r2 und ergebnis verwerfen
+		bmi swap @falls negativ flag, tauschen
+	
+        afterCheck:
+		STR r1, [r3]
+		STR r2, [r3, #4]
+		subs r5, #1 @ inneren schleifenzaeahler
+		bne innerloop @falls noch nicht 0 nochmal
+    
+		subs r4, #1 @aueﬂere schleife runterzaehlen
+		bne outerloop
+		bal fertig
+    
+	swap:
+	   	mov r0, r1 @ dreieckstausch
+	    	mov r1, r2
+	    	mov r2, r0
+	  	bal afterCheck
 
 
 fertig:
