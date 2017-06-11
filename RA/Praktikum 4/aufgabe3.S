@@ -21,7 +21,7 @@ loop:
 	LDRSB r0,[r1] @ lade ersten Wert
 	STR r0,[r2] @ speichere ihn in Liste2
 
-	ADD r1, #4 @ Lesezeiger verschieben
+	ADD r1, #1 @ Lesezeiger verschieben
 	ADD r2, #4 @ Schreibzeiger verschieben
 	
 	SUBS r3, #1 @ Anzahl der Elemente - 1
