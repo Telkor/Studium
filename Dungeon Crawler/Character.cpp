@@ -81,7 +81,7 @@ void Character::addItem(Item* m_items){
 
 int Character::getStrength(){
     int m_strength = strength;
-    cout << "Itemanzahl: " << items.size() << "\n";
+    //cout << "Itemanzahl: " << items.size() << "\n";
     for(int i = 0; i < items.size(); i++){
        m_strength += items.at(i)->modifyStrength(strength); 
        
