@@ -154,6 +154,12 @@ void DungeonMap::print(){ //Ausgabe der Spielwelt
         for(int j = 0; j < breite; j++){
             Spielwelt[i][j]->print();
             
+	//if(hasLineOfSight( , ) == true)
+             Spielwelt[i][j]->print();   
+            
+          // else
+          //     cout << "#";	
+		
             
             
       /*      if (Spielwelt[i][j]->hasCharacter()){
