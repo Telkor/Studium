@@ -39,7 +39,7 @@ public:
     Position findTile(Tile* t) const;
     Tile* findTile(Position pos) const;
     Position findCharacter(Character* c);
-    void print();
+    void print(Position rs);
     void placeItem(Item* i, Position pos);
     bool hasLineOfSight(Position from, Position to);
     
