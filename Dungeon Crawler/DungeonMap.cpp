@@ -153,14 +153,14 @@ void DungeonMap::print(Position rs){ //Ausgabe der Spielwelt
     for (int i = 0; i < hoehe; i++){
         cout << endl;
         for(int j = 0; j < breite; j++){
-            //Position aktPos;
-            //aktPos.m_height = i;
-            //aktPos.m_width = j;
-            //if(hasLineOfSight(rs, aktPos) == true)
+            Position pos;
+            pos.m_height = i;
+            pos.m_width = j;
+            if(hasLineOfSight(rs, pos) == true)
              Spielwelt[i][j]->print();   
             
-          // else
-          //     cout << "#";
+           else
+               cout << "#";
 
              
             
@@ -181,7 +181,7 @@ void DungeonMap::placeItem(Item* i, Position pos){
     Spielwelt[pos.m_height][pos.m_width]->setItem(i);
 }
 
-bool DungeonMap::hasLineOfSight(Position from, Position to){
+bool DungeonMap::hasLineOfSight(Position from, Position to){  //Bresenham-Algorithmus
     
     
    /* double dx = to.m_width - from.m_width;
@@ -211,26 +211,29 @@ bool DungeonMap::hasLineOfSight(Position from, Position to){
     */
     
     
-   /*     double x = to.m_width - from.m_width;
+    double x = to.m_width - from.m_width;
     double y = to.m_height - from.m_height;
-    double len = sqrt((x * x) + (y * y));
+    double length = sqrt((x * x) + (y * y));
 
-    if (!len) //eigene Tile
-        return true;
 
-    double stepx = x / len;
-    double stepy = y / len;
+    double stepx = x / length;
+    double stepy = y / length;
 
     x = from.m_width;
     y = from.m_height;
-    for (double i = 0; i < len; i += 1) {
+    for (double i = 0; i < length; i += 1) {
         if (Spielwelt[static_cast<int> (y)][static_cast<int> (x)]->isTransparent() == false)
             return false;
 
         x += stepx;
         y += stepy;
     }
-    return true; //hat sicht*/
+    return true;
     
+    
+
+}
+
+vector<Position> DungeonMap::getPathTo(Position from, Position to){
     
 }

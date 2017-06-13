@@ -31,12 +31,13 @@ void GameEngine::run(){
 void GameEngine::turn(){
     for (int i = 0; i < spielfiguren.size(); i++){
         bool exit = false;
-        
-        dm.print();
-        
         Position pos;
+        pos = dm.findCharacter(spielfiguren.at(i));
+        dm.print(pos);
         
-        pos = dm.findCharacter(spielfiguren.at(i)); 
+        //Position pos;
+        
+         
         //cout << pos.m_height;
  
         Tile* oldTile = dm.findTile(pos);
@@ -138,6 +139,7 @@ void GameEngine::link(vector<string> &specialTiles){
     Position posobj;
     string tmp;
     string obj;
+    string controller;
     size_t spos;
     char zeichen;
     size_t tpos;
@@ -155,34 +157,34 @@ void GameEngine::link(vector<string> &specialTiles){
             spos = tmp.find(" ");
             tmp = tmp.substr(spos+1, tmp.length());
             tpos += ++spos;
-            int strength = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
             spos = tmp.find(" ");
-            tmp = tmp.substr(spos + 1, tmp.length());
-            tpos += ++spos;
-            int stamina = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
-            spos = tmp.find(" ");
-            tmp = tmp.substr(spos + 1, tmp.length());           
-            tpos += ++spos;
+            tmp = tmp.substr(spos+1, tmp.length());
+            obj = tmp.substr(0,--spos);
+            int strength = atoi(obj.c_str());
             spos = tmp.find(" ");
             obj = tmp.substr(0, spos);
-            
-            tmp = tmp.substr(spos + 1, tmp.length());
-            tpos += ++spos;
-            posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            int stamina = atoi(obj.c_str());
+            tmp = tmp.substr(spos + 1, tmp.length());                       
             spos = tmp.find(" ");
+            controller = tmp.substr(0, spos);         
             tmp = tmp.substr(spos + 1, tmp.length());
-            tpos += ++spos;
-            posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            spos = tmp.find(" ");
+            obj = tmp.substr(0, spos);
+            posobj.m_height = atoi(obj.c_str());
+            tmp = tmp.substr(spos + 1, tmp.length());
+            spos = tmp.find(" ");
+            obj = tmp.substr(0, spos);
+            posobj.m_width = atoi(obj.c_str());
             
             
             
             
-            if (obj == "ConsoleController"){
+            if (controller == "ConsoleController"){
                 Character* c = new Character(zeichen, strength, stamina, false);
                 dm.place(posobj, c);
                 spielfiguren.push_back(c);
             }
-            if (obj == "StationaryController"){
+            if (controller == "StationaryController"){
                 Character* c = new Character(zeichen, strength, stamina, true);
                 dm.place(posobj, c);
                 spielfiguren.push_back(c);
@@ -190,35 +192,38 @@ void GameEngine::link(vector<string> &specialTiles){
         }
     
         if (obj == "Greatsword"){
-            posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
             spos = tmp.find(" ");
+            obj = tmp.substr(0, spos);
+            posobj.m_height = atoi(obj.c_str());
             tmp = tmp.substr(spos+1, tmp.length());
-            tpos += ++spos;            
-            posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            spos = tmp.find(" ");
+            obj = tmp.substr(0, spos);
+            posobj.m_width = atoi(obj.c_str());
             
             Greatsword* gs = new Greatsword();
             dm.placeItem(gs, posobj);
         }
         
         if (obj == "Door"){
-            posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
-            spos = tmp.find(" ");
-            tmp = tmp.substr(spos+1, tmp.length());
-            tpos += ++spos;            
-            posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
-            spos = tmp.find(" ");
-            tmp = tmp.substr(spos+1, tmp.length());
-            tpos += ++spos;
-            passivetile = dynamic_cast<Passive*> (dm.findTile(posobj));
             spos = tmp.find(" ");
             obj = tmp.substr(0, spos);
-            tmp = tmp.substr(spos + 1, tmp.length());
-            tpos += ++spos;
-            posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            posobj.m_height = atoi(obj.c_str());
+            tmp = tmp.substr(spos+1, tmp.length());
             spos = tmp.find(" ");
-            tmp = tmp.substr(spos + 1, tmp.length());
-            tpos += ++spos;
-            posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            obj = tmp.substr(0, spos);
+            posobj.m_width = atoi(obj.c_str());
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos+1, tmp.length());
+            passivetile = dynamic_cast<Passive*> (dm.findTile(posobj));
+            spos = tmp.find(" ");
+            tmp = tmp.substr(spos+1, tmp.length());
+            spos = tmp.find(" ");
+            obj = tmp.substr(0, spos);
+            posobj.m_height = atoi(obj.c_str());
+            tmp = tmp.substr(spos+1, tmp.length());
+            spos = tmp.find(" ");
+            obj = tmp.substr(0, spos);
+            posobj.m_width = atoi(obj.c_str());
             activetile = dynamic_cast<Active*> (dm.findTile(posobj));
         
             activetile->setPassive(passivetile);
@@ -227,11 +232,13 @@ void GameEngine::link(vector<string> &specialTiles){
         if (obj == "Trap"){
             Trap* trap;
             
-            posobj.m_height = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
             spos = tmp.find(" ");
+            obj = tmp.substr(0, spos);
+            posobj.m_height = atoi(obj.c_str());
             tmp = tmp.substr(spos+1, tmp.length());
-            tpos += ++spos;            
-            posobj.m_width = static_cast<int> (specialTiles.at(i).at(tpos)) - 48;
+            spos = tmp.find(" ");
+            obj = tmp.substr(0, spos);
+            posobj.m_width = atoi(obj.c_str());
         
             trap = dynamic_cast<Trap*> (dm.findTile(posobj));
         }

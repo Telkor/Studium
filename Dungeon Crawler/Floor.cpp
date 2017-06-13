@@ -33,7 +33,7 @@ void Floor::print(){
     if (hasCharacter() == true)
         cout << getCharacter()->getZeichen();
     
-    else if (getItem() != nullptr ){
+    else if (getItem() != nullptr){
         cout << "*";
     }
     

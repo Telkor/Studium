@@ -94,17 +94,17 @@ void loadFromFile(string filename, vector<string>& map, vector<string>& st,
 
 
 int main() {
-     int height;
+    int height;
     int width;
-    vector<string> specialTiles{"Character @ 5 5 ConsoleController 6 6",
+    /*vector<string> specialTiles{"Character @ 5 5 ConsoleController 6 6",
             "Character % 5 5 StationaryController 3 4",
             "Door 6 2 Switch 2 4",
             "Greatsword 1 4",
-            "Trap 4 2"};
+            "Trap 4 2"}; */
     vector<string> st;
-    vector<string> info{"6 2 D 2 4 S"};
+    //vector<string> info{"6 2 D 2 4 S"};
     vector<string> map;
-    vector<string> data{ 
+    /*vector<string> data{ 
         "####################", 
         "####...............#", 
         "###.S..............#", 
@@ -114,7 +114,7 @@ int main() {
         "#.D................#", 
         "#..................#", 
         "#..................#", 
-        "####################",}; 
+        "####################",}; */
        
        loadFromFile("level1.txt", map, st, height, width);
         

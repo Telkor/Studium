@@ -42,6 +42,7 @@ public:
     void print(Position rs);
     void placeItem(Item* i, Position pos);
     bool hasLineOfSight(Position from, Position to);
+    vector<Position> getPathTo(Position from, Position to);
     
     
 private:
