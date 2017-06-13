@@ -174,5 +174,31 @@ void DungeonMap::placeItem(Item* i, Position pos){
 }
 
 bool DungeonMap::hasLineOfSight(Position from, Position to){
+       
+   /* double dx = to.m_width - from.m_width;
+    double dy = to.m_height - from.m_height;
     
+    double xstep = 1;
+    double ystep = 1;
+    
+    if(dx < 0){
+        dx = -dx;
+        xstep = -1;   
+    }
+    
+    if(dy < 0){
+        dy = -dy;
+        ystep = -1;
+        
+    }
+    
+    double a = 2*dx;
+    double b = 2*dy;
+    
+    
+    double m = dy / dx;
+    
+    double y = dy; 
+    */
+	
 }
