@@ -104,3 +104,12 @@ int Character::getStamina(){
 void Character::damage(int i){
     hitpoints -= i;
 }
+
+void Character::fight(int i){
+    hitpoints -= i;
+    
+    if(hitpoints > 0){
+    
+    }
+    
+    else if(hitpoints > 
