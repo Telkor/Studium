@@ -26,6 +26,7 @@ public:
     int getStrength();
     int getStamina();
     void damage(int i);
+    void fight(int i);
     
 private:
     char zeichen = '8';
