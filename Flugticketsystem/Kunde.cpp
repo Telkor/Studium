@@ -13,3 +13,10 @@ Kunde::Kunde(string m_vorname, string m_name, string m_email, string m_passwort,
 Kunde::~Kunde() {
 }
 
+string Kunde::getEmail(){
+    return email;
+}
+
+string Kunde::getPasswort(){
+    return passwort;
+}

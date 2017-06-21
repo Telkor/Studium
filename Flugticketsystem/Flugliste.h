@@ -14,16 +14,16 @@ class Flugliste {
 public:
     Flugliste();
     virtual ~Flugliste();
-    void fluegeEinlesen(Flug* a);
+    void fluegeEinlesen(Flug a);
     void flugSuchen();
     void print(int index);
     int size();
     string getAbFlughafen(int index);
     string getZielFlughafen(int index);
     int getflugnummer(int index);
-    Flug* at(int index);
+    Flug at(int index);
 private:
-    vector<Flug*> flugliste;
+    vector<Flug> flugliste;
 };
 
 #endif /* FLUGLISTE_H */

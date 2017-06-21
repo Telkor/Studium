@@ -8,7 +8,7 @@ using namespace std;
 class Flug {
 public:
     Flug();
-    Flug(int m_flugnummer, string m_abflugFlughafen, string m_zielFlughafen, string m_datum, float m_flugpreis);
+    Flug(int m_flugnummer, string m_abflugFlughafen, string m_zielFlughafen, string m_datum/*, int m_flugpreis */);
     virtual ~Flug();
     string getAbflugFlughafen();
     string getZielFlughafen();

@@ -12,27 +12,37 @@ void CUI::zeigeMenus(){
     string eingabe;
     while (true) {
         cout << "1. Registrieren" << "\n";
-        cout << "2. Flug suchen" << "\n";
-        cout << "3. Flug buchen" << "\n";
-        cout << "4. gekaufte Tickets anzeigen" << "\n";
-        cout << "5. Programm beenden" << "\n";
+        cout << "2. Anmelden" << "\n";
+        cout << "3. Flug suchen" << "\n";
+        cout << "4. Flug buchen" << "\n";
+        cout << "5. gekaufte Tickets anzeigen" << "\n";
+        cout << "6. Programm beenden" << "\n";
         cin >> eingabe;
         
         if (eingabe == "1")
             registrieren();
         
         if (eingabe == "2")
-            flugSuchen();
+            anmelden();
         
         if (eingabe == "3")
-            flugBuchen();
+            flugSuchen();
         
-        if (eingabe == "4")
-            ticketAnzeigen();
+        if (eingabe == "4" && login == true)
+            flugBuchen();
+        else if (eingabe == "4" && login == false)
+            cout << "Sie muessen sich erst anmelden!" << "\n";
         
         if (eingabe == "5")
+            ticketAnzeigen();
+        
+        if (eingabe == "6")
             break;
         
+        if (eingabe == "o")
+            for (int i = 0; i < flugliste->size(); i++){
+                flugliste->print(i);
+            }
     }
 }
 
@@ -119,5 +129,24 @@ void CUI::flugBuchen(){
             t.setReiseklasse(rk);
             ticketliste.push_back(t);
         }
+        
     }
+}
+
+bool CUI::anmelden(){
+    string email;
+    string passwort;
+    cout << "Email: " << "\n";
+    cin >> email;
+    cout << "Passwort: " << "\n";
+    cin >> passwort;
+    
+    for (int i = 0; i < kundenliste.size(); i++){
+        if (email == kundenliste.at(i).getEmail() && passwort == kundenliste.at(i).getPasswort()){
+            login = true;
+            cout << "Sie sind angemeldet" << "\n";
+        }   
+    }
+    if (login == false)
+        cout << "Falsche Email oder falsches Passwort eingegeben!" << "\n";
 }

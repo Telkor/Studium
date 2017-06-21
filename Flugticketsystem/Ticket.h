@@ -12,7 +12,7 @@ public:
     Ticket();
     virtual ~Ticket();
     void print();
-    void setFlug(Flug* m_flug);
+    void setFlug(Flug m_flug);
     void setReiseklasse(string rk);
     
 private:

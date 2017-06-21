@@ -11,8 +11,8 @@ void Ticket::print(){
     flug->print();
 }
 
-void Ticket::setFlug(Flug* m_flug){
-    flug = m_flug;
+void Ticket::setFlug(Flug m_flug){
+    flug = &m_flug;
 }
 
 void Ticket::setReiseklasse(string rk){
