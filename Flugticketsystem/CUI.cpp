@@ -23,7 +23,7 @@ void CUI::zeigeMenus(){
         if (eingabe == "1" && login == false)
             registrieren();
         else if (eingabe == "1" && login == true)
-            cout << "\n" << "Sie sind bereits angemeldet!" << "\n";
+            cout << "\n" << "Sie sind angemeldet. Registrierung nicht moeglich!" << "\n";
         
         if (eingabe == "2" && login == false)
             anmelden();

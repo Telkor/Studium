@@ -1,5 +1,6 @@
 #include <string>
 #include <cstdlib>
+#include <vector>
 #include <iostream>
 #include "Flugliste.h"
 #include <fstream>
@@ -8,30 +9,9 @@ using namespace std;
 
 Flugliste::Flugliste() {
     
-    ifstream fluglist;
-    string line;   
-    fluglist.open("Flugliste.txt");
-    int i = 0;
-    int flugnummer;
-    string abflug;
-    string ziel;
-    string datum;
-    int preis;
-   
-    
-    if (fluglist.good()){
-        
-       for (int i = 0; i < fluglist.eof(); i++){
-               fluglist >> flugnummer >> abflug >> ziel >> datum;
-        }
-           Flug f(flugnummer, abflug, ziel, datum);
-           flugliste.push_back(f);
-       }
-         
-    
-    
-fluglist.close();
-    
+  fluegeEinlesen();
+  
+
     
     
     
@@ -54,8 +34,39 @@ fluglist.close();
 Flugliste::~Flugliste() {
 }
 
-void Flugliste::fluegeEinlesen(Flug a){  
-        flugliste.push_back(a);
+void Flugliste::fluegeEinlesen(){  
+     
+      
+    ifstream fluglist("Flugliste.txt", ios::in);
+    //fluglist.open("Flugliste.txt", ios::in);
+    int i = 0;
+     string line;
+    string flugnummer;
+    string abflug;
+    string ziel;
+    string datum;
+    //int preis;
+    
+   
+    
+    if (fluglist.good()){
+        
+       for (int i = 0; i < fluglist.eof(); i++){
+               fluglist >> flugnummer >> abflug >> ziel >> datum;
+        }
+           Flug f(flugnummer, abflug, ziel, datum);
+           flugliste.push_back(f);
+       }
+         
+    
+    
+fluglist.close();
+    
+    
+    
+    
+    
+    //flugliste.push_back();
 }
 
 void Flugliste::print(int index){
@@ -74,7 +85,7 @@ string Flugliste::getZielFlughafen(int index){
     return flugliste.at(index).getZielFlughafen();
 }
 
-int Flugliste::getflugnummer(int index){
+string Flugliste::getflugnummer(int index){
     return flugliste.at(index).getflugnummmer();
 }
 
