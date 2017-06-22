@@ -149,6 +149,8 @@ void CUI::flugBuchen(){
     cin >> rk;
     cout << "Wieviele Tickets moechten Sie kaufen?";
     cin >> tk;
+               
+    //Bezahlung muss entweder ueber EC- oder Kreditkarte moeglich sein!
     
     Ticket t;
     
