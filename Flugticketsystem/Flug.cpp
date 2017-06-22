@@ -28,7 +28,7 @@ void Flug::print(){
     cout << "Abflugflughafen: " << abflugFlughafen << "\n";
     cout << "Zielflughafen: " << zielFlughafen << "\n";
     cout << "Datum: " << datum << "\n";
-    cout << "Flugpreis: " << flugpreis << "\n";
+    cout << "Flugpreis pro Ticket: " << flugpreis << "\n";
     cout << "\n" << "\n";
 }
 
@@ -38,4 +38,8 @@ string Flug::getFlugnummer(){
 
 string Flug::setFlugnummer(string flugnr){
     flugnummer =  flugnr;
+}
+
+double Flug::getFlugpreis(){
+    return flugpreis;
 }

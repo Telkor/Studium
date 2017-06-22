@@ -15,6 +15,7 @@ public:
     void print();
     string getFlugnummer();
     string setFlugnummer(string flugnr);
+    double getFlugpreis();
     
 private:
     string abflugFlughafen;

@@ -14,12 +14,13 @@ public:
     void print();
     void setFlug(Flug m_flug);
     void setReiseklasse(string rk);
-    
+    void setAnzahl(int m_anzahl);
     
 private:
     string reiseKlasse;
-    Flug* flug = new Flug;
-    Buchung* buchung = new Buchung;
+    Flug flug;
+    Buchung buchung;
+    int anzahl;
 };
 
 #endif /* TICKET_H */

@@ -149,8 +149,6 @@ void CUI::flugBuchen(){
     cin >> rk;
     cout << "Wieviele Tickets moechten Sie kaufen?";
     cin >> tk;
-               
-    //Bezahlung muss entweder ueber EC- oder Kreditkarte moeglich sein!
     
     Ticket t;
     
@@ -158,7 +156,7 @@ void CUI::flugBuchen(){
         if (flugliste->getFlugnummer(i) == flgnr){
             t.setFlug(flugliste->at(i));
             t.setReiseklasse(rk);
-            
+            t.setAnzahl(tk);
             
             ticketliste.push_back(t);
         }
