@@ -15,6 +15,7 @@ public:
     void setFlug(Flug m_flug);
     void setReiseklasse(string rk);
     
+    
 private:
     string reiseKlasse;
     Flug* flug = new Flug;

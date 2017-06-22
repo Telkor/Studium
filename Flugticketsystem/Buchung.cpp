@@ -16,3 +16,8 @@ Buchung::Buchung(const Buchung& orig) {
 Buchung::~Buchung() {
 }
 
+void Buchung::zahlungsBelegErstellen(){
+    
+    
+    
+}

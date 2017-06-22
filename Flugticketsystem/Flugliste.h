@@ -20,7 +20,7 @@ public:
     int size();
     string getAbFlughafen(int index);
     string getZielFlughafen(int index);
-    string getflugnummer(int index);
+    string getFlugnummer(int index);
     Flug at(int index);
 private:
     vector<Flug> flugliste;

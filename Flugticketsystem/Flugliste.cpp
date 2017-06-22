@@ -121,8 +121,8 @@ string Flugliste::getZielFlughafen(int index){
     return flugliste.at(index).getZielFlughafen();
 }
 
-string Flugliste::getflugnummer(int index){
-    return flugliste.at(index).getflugnummmer();
+string Flugliste::getFlugnummer(int index){
+    return flugliste.at(index).getFlugnummer();
 }
 
 Flug Flugliste::at(int index){

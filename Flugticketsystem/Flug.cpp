@@ -32,6 +32,10 @@ void Flug::print(){
     cout << "\n" << "\n";
 }
 
-string Flug::getflugnummmer(){
+string Flug::getFlugnummer(){
     return flugnummer;
+}
+
+string Flug::setFlugnummer(string flugnr){
+    flugnummer =  flugnr;
 }

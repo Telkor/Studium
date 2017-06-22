@@ -7,6 +7,7 @@ using namespace std;
 
 class Kunde {
 public:
+    Kunde();
     Kunde(string m_vorname, string m_name, string m_email, string m_passwort, string m_gebDatum, string m_IBAN);
     virtual ~Kunde();
     string getName();

@@ -7,13 +7,21 @@
 
 #ifndef BUCHUNG_H
 #define	BUCHUNG_H
+#include "Kunde.h"
 
 class Buchung {
 public:
+    
+    
     Buchung();
     Buchung(const Buchung& orig);
     virtual ~Buchung();
+    void zahlungsBelegErstellen();
 private:
+    string email;
+    string datum;
+    string IBAN;
+    bool verkauft;
 
 };
 

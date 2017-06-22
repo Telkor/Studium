@@ -13,7 +13,8 @@ public:
     string getAbflugFlughafen();
     string getZielFlughafen();
     void print();
-    string getflugnummmer();
+    string getFlugnummer();
+    string setFlugnummer(string flugnr);
     
 private:
     string abflugFlughafen;

@@ -1,5 +1,7 @@
 #include "CUI.h"
 
+using namespace std;
+
 CUI::CUI() {
     
     login = false;
@@ -43,10 +45,9 @@ void CUI::zeigeMenus(){
             ticketAnzeigen();
         
         if (eingabe == "6" && login == true){
-            login == false;
+            login = false;
             cout << "\n" << "Sie haben sich ausgeloggt." << "\n";
         }
-        
         else if(eingabe == "6" && login == false){
             cout << "\n" << "Sie sind bereits ausgeloggt." << "\n";
         }
@@ -116,14 +117,20 @@ void CUI::flugSuchen(){
         if (flugliste->getAbFlughafen(i) == abflug){
             if (flugliste->getZielFlughafen(i) == zielflug)
                 flugliste->print(i);
-
-            else
+             
+            else {
                 cout << "\n" << "Diese Flugverbindung existiert nicht." << "\n" << "\n";
-        }
-            
+                break;
+            }
+        }      
+//        if(flugliste->getAbFlughafen(i) != abflug){   
+//            cout << "\n" << "Diese Flugverbindung existiert nicht." << "\n" << "\n";
+//            break;
+//        }       
     }
-
 }
+
+
 
 void CUI::ticketAnzeigen(){
     for (int i = 0; i < ticketliste.size(); i++){
@@ -138,7 +145,7 @@ void CUI::flugBuchen(){
     int tk;
     cout << "Welchen Flug moechten sie buchen? (Flugnummer): " << "\n";
     cin >> flgnr;
-    cout << "In welcher Reiseklasse moechten sie fliegen?(economy/businless/firstClass): " << "\n";
+    cout << "In welcher Reiseklasse moechten sie fliegen?(economy/business/firstClass): " << "\n";
     cin >> rk;
     cout << "Wieviele Tickets moechten Sie kaufen?";
     cin >> tk;
@@ -146,9 +153,11 @@ void CUI::flugBuchen(){
     Ticket t;
     
     for (int i = 0; i < flugliste->size(); i++){
-        if (flugliste->getflugnummer(i) == flgnr){
+        if (flugliste->getFlugnummer(i) == flgnr){
             t.setFlug(flugliste->at(i));
             t.setReiseklasse(rk);
+            
+            
             ticketliste.push_back(t);
         }
         
