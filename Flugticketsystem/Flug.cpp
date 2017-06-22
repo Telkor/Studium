@@ -4,12 +4,12 @@ Flug::Flug(){
     
 }
 
-Flug::Flug(string m_flugnummer, string m_abflugFlughafen, string m_zielFlughafen, string m_datum /*, int m_flugpreis */) {
+Flug::Flug(string m_flugnummer, string m_abflugFlughafen, string m_zielFlughafen, string m_datum , double m_flugpreis) {
     abflugFlughafen = m_abflugFlughafen;
     zielFlughafen = m_zielFlughafen;
     datum = m_datum;
     flugnummer = m_flugnummer;
-    //flugpreis = m_flugpreis;
+    flugpreis = m_flugpreis;
 }
 
 Flug::~Flug() {
@@ -29,7 +29,7 @@ void Flug::print(){
     cout << "Zielflughafen: " << zielFlughafen << "\n";
     cout << "Datum: " << datum << "\n";
     cout << "Flugpreis: " << flugpreis << "\n";
-    cout << "\n";
+    cout << "\n" << "\n";
 }
 
 string Flug::getflugnummmer(){

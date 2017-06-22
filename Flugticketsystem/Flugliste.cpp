@@ -1,15 +1,15 @@
+#include "Flugliste.h"
 #include <string>
 #include <cstdlib>
 #include <vector>
 #include <iostream>
-#include "Flugliste.h"
 #include <fstream>
 
 using namespace std;
 
 Flugliste::Flugliste() {
     
-  fluegeEinlesen();
+  flugEinlesen();
   
 
     
@@ -34,9 +34,45 @@ Flugliste::Flugliste() {
 Flugliste::~Flugliste() {
 }
 
-void Flugliste::fluegeEinlesen(){  
+void Flugliste::flugEinlesen(){  
      
-      
+    int i = 0;
+    double preis;
+    int groesse;
+    string flugnummer;
+    string abflug;
+    string ziel;
+    string datum;
+    ifstream file;
+    string line;
+    file.open("Flugliste.txt");
+    if(file.is_open()){
+        
+    file >> groesse;    
+       
+        for (int i = 0; i < groesse; i++){
+               file >> flugnummer >> abflug >> ziel >> datum >> preis;
+        
+        Flug f(flugnummer, abflug, ziel, datum, preis);
+        flugliste.push_back(f);
+        
+        }
+          //Flug f(flugnummer, abflug, ziel, datum);
+          // flugliste.push_back(f);
+    }
+        
+        
+        
+        
+     /*   while (std::getline(file,line)){
+            std::cout << line << std::endl;
+        }
+        file.close();
+    }  */
+    
+   
+  /*  
+    
     ifstream fluglist("Flugliste.txt", ios::in);
     //fluglist.open("Flugliste.txt", ios::in);
     int i = 0;
@@ -66,7 +102,7 @@ fluglist.close();
     
     
     
-    //flugliste.push_back();
+    //flugliste.push_back();  */
 }
 
 void Flugliste::print(int index){

@@ -1,2 +1,3 @@
-101 Frankfurt New-York 21.07.2017 600
-394 Berlin Paris 13.05.2017 300
+2
+101 Frankfurt New_York 21.07.2017 599.99
+394 Berlin Paris 13.05.2017 299.99

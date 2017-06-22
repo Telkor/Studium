@@ -1,14 +1,14 @@
 #ifndef FLUG_H
 #define FLUG_H
 #include <iostream>
-//#include <string>
+#include <string>
 
 using namespace std;
 
 class Flug {
 public:
     Flug();
-    Flug(string m_flugnummer, string m_abflugFlughafen, string m_zielFlughafen, string m_datum/*, int m_flugpreis */);
+    Flug(string m_flugnummer, string m_abflugFlughafen, string m_zielFlughafen, string m_datum, double m_flugpreis);
     virtual ~Flug();
     string getAbflugFlughafen();
     string getZielFlughafen();
@@ -20,7 +20,7 @@ private:
     string zielFlughafen;
     string datum;
     string flugnummer;
-    float flugpreis;
+    double flugpreis;
 };
 
 #endif /* FLUG_H */

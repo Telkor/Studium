@@ -17,18 +17,19 @@ void CUI::zeigeMenus(){
         cout << "3. Flug suchen" << "\n";
         cout << "4. Flug buchen" << "\n";
         cout << "5. gekaufte Tickets anzeigen" << "\n";
-        cout << "6. Programm beenden" << "\n";
+        cout << "6. Ausloggen" << "\n";
+        cout << "7. Programm beenden" << "\n";
         cin >> eingabe;
         
         if (eingabe == "1" && login == false)
             registrieren();
         else if (eingabe == "1" && login == true)
-            cout << "\n" << "Sie sind angemeldet. Registrierung nicht moeglich!" << "\n";
+            cout << "\n" << "Sie sind angemeldet. Registrierung nicht moeglich." << "\n";
         
         if (eingabe == "2" && login == false)
             anmelden();
         else if (eingabe == "2" && login == true)
-            cout << "\n" << "Sie sind bereits angemeldet!" << "\n";
+            cout << "\n" << "Sie sind bereits angemeldet." << "\n";
         
         if (eingabe == "3")
             flugSuchen();
@@ -36,12 +37,21 @@ void CUI::zeigeMenus(){
         if (eingabe == "4" && login == true)
             flugBuchen();
         else if (eingabe == "4" && login == false)
-            cout << "\n"<<  "Sie muessen sich erst anmelden!" << "\n" << "\n";
+            cout << "\n"<<  "Sie muessen sich erst anmelden." << "\n" << "\n";
         
         if (eingabe == "5")
             ticketAnzeigen();
         
-        if (eingabe == "6")
+        if (eingabe == "6" && login == true){
+            login == false;
+            cout << "\n" << "Sie haben sich ausgeloggt." << "\n";
+        }
+        
+        else if(eingabe == "6" && login == false){
+            cout << "\n" << "Sie sind bereits ausgeloggt." << "\n";
+        }
+        
+        if (eingabe == "7")
             break;
         
         if (eingabe == "o")
@@ -102,10 +112,13 @@ void CUI::flugSuchen(){
         string ab = flugliste->getAbFlughafen(i);
         string zi = flugliste->getZielFlughafen(i);
         
-        flugliste->print(i);
+        //flugliste->print(i);
         if (flugliste->getAbFlughafen(i) == abflug){
             if (flugliste->getZielFlughafen(i) == zielflug)
                 flugliste->print(i);
+
+            else
+                cout << "\n" << "Diese Flugverbindung existiert nicht." << "\n" << "\n";
         }
             
     }
@@ -122,10 +135,13 @@ void CUI::flugBuchen(){
     
     string flgnr;
     string rk;
-    cout << "Welchen Flug moechten sie buchen?: " << "\n";
+    int tk;
+    cout << "Welchen Flug moechten sie buchen? (Flugnummer): " << "\n";
     cin >> flgnr;
     cout << "In welcher Reiseklasse moechten sie fliegen?(economy/businless/firstClass): " << "\n";
     cin >> rk;
+    cout << "Wieviele Tickets moechten Sie kaufen?";
+    cin >> tk;
     
     Ticket t;
     

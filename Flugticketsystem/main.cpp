@@ -11,10 +11,6 @@ int main() {
     CUI cui;
     cui.zeigeMenus();
     
-    
-    
-    
-    
     return 0;
 }
 

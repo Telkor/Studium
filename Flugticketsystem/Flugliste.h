@@ -14,7 +14,7 @@ class Flugliste {
 public:
     Flugliste();
     virtual ~Flugliste();
-    void fluegeEinlesen();
+    void flugEinlesen();
     void flugSuchen();
     void print(int index);
     int size();
