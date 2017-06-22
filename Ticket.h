@@ -1,46 +1,27 @@
 #ifndef TICKET_H
-#define	TICKET_H
-
-#include <cstdlib>
+#define TICKET_H
 #include <iostream>
 #include <string>
-#include <vector>
-#include <cstdlib>
+#include "Flug.h"
+#include "Buchung.h"
 
 using namespace std;
 
-enum Status{open, closed, duplicate}; 
-
-class Ticket{
+class Ticket {
 public:
-    
     Ticket();
-    Ticket(string ownerName, string description);
-    string getText() const;
-    string getOwner() const;
-    int getId() const;
-    Status getStatus() const;
-    string getShort();
-    string getStatusAsString() const;
+    virtual ~Ticket();
     void print();
-    void setPriority(int prio);
-    int getPriority()const;
-    void setOwner(string own);
-    void setText(string mtext);
-    void static setEinid();
-    
-    
+    void setFlug(Flug m_flug);
+    void setReiseklasse(string rk);
+    void setAnzahl(int m_anzahl);
     
 private:
-    string text;
-    string owner;
-    Status status;
-    int id;
-    static int eindeutigeid;
-    int priority;
+    string reiseKlasse;
+    Flug flug;
+    Buchung buchung;
+    int anzahl;
 };
 
-
-
-#endif	/* TICKET_H */
+#endif /* TICKET_H */
 

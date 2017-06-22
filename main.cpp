@@ -1,34 +1,16 @@
 #include <cstdlib>
-#include <cstdlib>
 #include <iostream>
-#include <string>
 #include <vector>
-#include <cstdlib>
-#include "Tile.h"
-#include "GameEngine.h"
+#include "Flugliste.h"
+#include "CUI.h"
 
 using namespace std;
 
-/*
- * 
- */
 int main() {
 
-    vector<string> data{ 
-        "##########", 
-        "####.....#", 
-        "###......#", 
-        "##.......#", 
-        "#........#", 
-        "#........#", 
-        "#........#", 
-        "#........#", 
-        "#........#", 
-        "##########",}; 
-        
-       GameEngine ge(10,10,data); 
-       ge.run();
-    
+    CUI cui;
+    cui.zeigeMenus();
     
     return 0;
 }
+
