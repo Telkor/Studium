@@ -13,6 +13,8 @@ public:
     string getName();
     string getEmail();
     string getPasswort();
+    string getIBAN();
+    
     
 private:
     string vorname;

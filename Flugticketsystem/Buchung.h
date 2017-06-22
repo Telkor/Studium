@@ -14,14 +14,14 @@ public:
     
     
     Buchung();
-    Buchung(const Buchung& orig);
+    Buchung(string m_email, string kartennummer, bool m_verkauft, bool m_usedkk);
     virtual ~Buchung();
-    void zahlungsBelegErstellen();
 private:
     string email;
-    string datum;
     string IBAN;
+    string kreditkarte;
     bool verkauft;
+    bool usedKreditkarte;
 
 };
 

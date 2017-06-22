@@ -105,10 +105,6 @@ fluglist.close();
     //flugliste.push_back();  */
 }
 
-void Flugliste::print(int index){
-    flugliste.at(index).print();
-}
-
 int Flugliste::size(){
     return flugliste.size();    //gibt size der Flugliste zurück
 }

@@ -11,10 +11,13 @@ class Ticket {
 public:
     Ticket();
     virtual ~Ticket();
-    void print();
     void setFlug(Flug m_flug);
     void setReiseklasse(string rk);
     void setAnzahl(int m_anzahl);
+    string getReiseKlasse();
+    int getAnzahl();
+    void setBuchung(Buchung m_buchung);
+    Flug getFlug();
     
 private:
     string reiseKlasse;

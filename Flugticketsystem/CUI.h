@@ -13,18 +13,12 @@ class CUI {
 public:
     CUI();
     virtual ~CUI();
-    void menuAnzeigen();
-    void ticketBerechnen();
     void ticketAnzeigen();
-    void ticketBezahlen();
-    void ticketAusdrucken();
-    void zeigeMenus();
-    void addKunde();
+    void zeigeMenu();
     bool anmelden();
     bool loginPruefen();
     void flugSuchen();
     void registrieren();
-    void fluglisteAnzeigen();
     void flugBuchen();
     
 private:
@@ -33,5 +27,6 @@ private:
     vector<Ticket> ticketliste;
     vector<Buchung> buchungsliste;
     bool login;
+    int kunde;
 };
 

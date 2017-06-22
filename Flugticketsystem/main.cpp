@@ -9,7 +9,7 @@ using namespace std;
 int main() {
 
     CUI cui;
-    cui.zeigeMenus();
+    cui.zeigeMenu();
     
     return 0;
 }

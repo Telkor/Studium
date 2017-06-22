@@ -15,8 +15,7 @@ public:
     Flugliste();
     virtual ~Flugliste();
     void flugEinlesen();
-    void flugSuchen();
-    void print(int index);
+    void flugSuchen(); 
     int size();
     string getAbFlughafen(int index);
     string getZielFlughafen(int index);

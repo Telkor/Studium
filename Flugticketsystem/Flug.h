@@ -12,10 +12,10 @@ public:
     virtual ~Flug();
     string getAbflugFlughafen();
     string getZielFlughafen();
-    void print();
     string getFlugnummer();
     string setFlugnummer(string flugnr);
     double getFlugpreis();
+    string getDatum();
     
 private:
     string abflugFlughafen;
