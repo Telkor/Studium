@@ -8,8 +8,8 @@ using namespace std;
 
 int main() {
 
-    CUI cui;
-    cui.zeigeMenus();
+    CUI cui;            //legt CUI-Objekt an
+    cui.zeigeMenu();    // ruft das Menu auf
     
     return 0;
 }

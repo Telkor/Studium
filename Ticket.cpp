@@ -6,14 +6,6 @@ Ticket::Ticket() {
 Ticket::~Ticket() {
 }
 
-void Ticket::print(){
-    cout << "Reiseklasse: " << reiseKlasse << "\n";
-    cout << "Ticketanzahl: " << anzahl << "\n";
-    cout << "Gesamtpreis: " << anzahl*flug.getFlugpreis() << "\n";
-    flug.print();
-    
-}
-
 void Ticket::setFlug(Flug m_flug){
     flug = m_flug;
 }
@@ -25,3 +17,20 @@ void Ticket::setReiseklasse(string rk){
 void Ticket::setAnzahl(int m_anzahl){
     anzahl = m_anzahl;
 }
+
+string Ticket::getReiseKlasse(){
+    return reiseKlasse;
+}
+
+int Ticket::getAnzahl(){
+    return anzahl;
+}
+
+void Ticket::setBuchung(Buchung m_buchung){
+    buchung = m_buchung;
+}
+
+Flug Ticket::getFlug(){     
+    return flug;                   //gibt Flugobjekt zurueck
+}       
+        

@@ -26,3 +26,7 @@ string Kunde::getEmail(){
 string Kunde::getPasswort(){
     return passwort;
 }
+
+string Kunde::getIBAN(){
+    return IBAN;
+}

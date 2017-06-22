@@ -1,10 +1,3 @@
-/* 
- * File:   Buchung.h
- * Author: fs
- *
- * Created on 21. Juni 2017, 19:41
- */
-
 #ifndef BUCHUNG_H
 #define	BUCHUNG_H
 #include "Kunde.h"
@@ -14,14 +7,14 @@ public:
     
     
     Buchung();
-    Buchung(const Buchung& orig);
+    Buchung(string m_email, string kartennummer, bool m_verkauft, bool m_usedkk);
     virtual ~Buchung();
-    void zahlungsBelegErstellen();
 private:
     string email;
-    string datum;
     string IBAN;
+    string kreditkarte;
     bool verkauft;
+    bool usedKreditkarte;
 
 };
 
