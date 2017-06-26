@@ -24,6 +24,8 @@ Add_instr:
     STR r3, Count
     BNE Loop
 
+Halt:
+b Halt
 
 //; Data definitions
 //Total 	DEFW 0 ; Total - initially zero
