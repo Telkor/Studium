@@ -28,6 +28,7 @@ public:
     void damage(int i);
     int getHP();
     bool getIsKI();
+    friend ostream& operator<<(ostream& os, const Character& character);
     
 private:
     char zeichen = '8';
