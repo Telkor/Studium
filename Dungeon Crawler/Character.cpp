@@ -109,3 +109,8 @@ int Character::getHP(){
 bool Character::getIsKI(){
     return isKI;
 }
+
+ostream& operator<<(ostream& os, const Character& character){
+    os << character.zeichen << character.strength << character.stamina << character.hitpoints;
+    return os;
+}
