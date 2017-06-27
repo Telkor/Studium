@@ -13,10 +13,7 @@ Character::Character(){
 }
 
 Character::~Character(){
-    delete[] controller;
-    for(int i = 0; i < items.size(); i++){
-        delete items.at(i);
-    }
+   items.clear();
 }
 
 Character::Character(char zeichenart, int m_strength, int m_stamina, bool m_isKI){
@@ -105,11 +102,10 @@ void Character::damage(int i){
     hitpoints -= i;
 }
 
-void Character::fight(int i){
-    hitpoints -= i;
-    
-    if(hitpoints > 0){
-    
-    }
-    
-    else if(hitpoints > 
+int Character::getHP(){
+    return hitpoints;
+}
+
+bool Character::getIsKI(){
+    return isKI;
+}

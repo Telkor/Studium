@@ -10,5 +10,5 @@ AttackController::~AttackController() {
 }
 
 char AttackController::move(){
-    PathtoPlayer = dm->getPathTo(dm->findCharacter(character), )
+//    PathtoPlayer = dm->getPathTo(dm->findCharacter(character), );
 }

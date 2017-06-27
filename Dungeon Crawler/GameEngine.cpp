@@ -29,16 +29,44 @@ void GameEngine::run(){
 }
 
 void GameEngine::turn(){
+    if (spielfiguren.size() == 0){
+        cout << "Game Over!" << "\n";
+        spielEnde = 0;
+        return;
+    }
+    
     for (int i = 0; i < spielfiguren.size(); i++){
-        bool exit = false;
+        
+        int count = 0;
+        
+        for (int j = 0; j < spielfiguren.size(); j++){
+            if (spielfiguren.at(j)->getIsKI() == false)
+                count++;
+        }
+        
+        if (count == 0){
+            cout << "Game Over!" << "\n";
+            spielEnde = 0;
+            return;
+        }
+        
+        count = 0;
+        
         Position pos;
+       
+        
+        
+        if (spielfiguren.at(i)->getHP() <= 0){
+            pos = dm.findCharacter(spielfiguren.at(i));
+            dm.findTile(pos)->setCharacter(nullptr);
+            delete spielfiguren.at(i);
+            spielfiguren.erase(spielfiguren.begin()+i);
+            return;          
+        }
+                    
         pos = dm.findCharacter(spielfiguren.at(i));
         dm.print(pos);
         
-        //Position pos;
-        
-         
-        //cout << pos.m_height;
  
         Tile* oldTile = dm.findTile(pos);
         
@@ -96,7 +124,7 @@ void GameEngine::turn(){
                             
                             if(eingabe == 3){
                                 spielEnde = 0;
-                                exit = true;
+                                return;
                                 break;
                             }
                             
@@ -107,8 +135,6 @@ void GameEngine::turn(){
                             break;
         }
         cout << newPos.m_height << " " << newPos.m_width << endl;
-        if (exit)
-            break;
     } 
     spielEnde--;
     
@@ -156,10 +182,9 @@ void GameEngine::link(vector<string> &specialTiles){
             zeichen = static_cast<char> (specialTiles.at(i).at(tpos));
             spos = tmp.find(" ");
             tmp = tmp.substr(spos+1, tmp.length());
-            tpos += ++spos;
             spos = tmp.find(" ");
+            obj = tmp.substr(0,spos);
             tmp = tmp.substr(spos+1, tmp.length());
-            obj = tmp.substr(0,--spos);
             int strength = atoi(obj.c_str());
             spos = tmp.find(" ");
             obj = tmp.substr(0, spos);

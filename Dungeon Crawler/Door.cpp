@@ -12,12 +12,15 @@ Door::Door() : Passive(){
 }
 
 void Door::print(){
-    if(getStatus() == false){
+    if(getStatus() == false && Passive::hasCharacter() == false)
         cout << "X";
-    }
-    else{
+     
+    else if (Passive::hasCharacter() == true)
+        cout << Passive::getCharacter()->getZeichen();
+    
+    else
         cout << "/";
-    }
+    
 }
 
 void Door::onEnter(Character* c, Tile* fromTile){

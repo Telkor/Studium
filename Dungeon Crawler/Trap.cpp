@@ -20,14 +20,15 @@ bool Trap::getTriggered(){
 
 void Trap::print(){
     
-    if(triggered == true){
+    if(triggered == true && Floor::hasCharacter() == false)
         cout << "T";
-    }
-    else{
+    
+    else if (Floor::hasCharacter() == true)
+        cout << Floor::getCharacter()->getZeichen();
+    
+    else
         cout << ".";
-    }
-    
-    
+ 
 }
 
 void Trap::onEnter(Character* c, Tile* fromTile){

@@ -7,7 +7,7 @@
 using namespace std;
 
 void Switch::print(){
-    if(Active::getStatus() == true){
+    if(Active::getStatus() == true && Active::hasCharacter() == false){
         cout << "!";
     }
     else if(Active::hasCharacter() == true)

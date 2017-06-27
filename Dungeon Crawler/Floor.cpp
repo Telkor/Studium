@@ -16,6 +16,15 @@ void Floor::onLeave(Tile* toTile){
 }
 
 void Floor::onEnter(Character* c, Tile* fromTile){
+    if (hasCharacter() == true){
+        getCharacter()->damage(c->getStrength());
+        
+        if(getCharacter()->getHP() > 0)
+            c->damage(getCharacter()->getStrength());
+        
+        fromTile->setCharacter(c);
+    }
+    
     if (hasCharacter() == false){
     setCharacter(c);
     fromTile->setCharacter(nullptr);
