@@ -20,34 +20,41 @@ main:
     
 	bl	up2
 	bl	up3
-	
+
+	pop {pc}
 
 // UP1 benutzt nur Scratchregister und stellt keine Blattroutine dar (ruft somit weitere
 // Unterprogramme auf)	
 up1:
     
-    bl up2
+     push {lr}	
+     bl up2
+    
      mov r0, #0
      mov r1, #1
      mov r2, #1
      mov r3, #1
      SUB LR, #8
-     MOV PC, LR 
-    
+     pop {pc}
+         
 // UP2 benutzt nur Scratchregister und stellt eine Blattroutine dar (ruft somit keine weiteren
 // Unterprogramme auf)
 up2: @summiert 4 parameter auf
 
+     push {lr}	
      SUB r3, #3
      
-     MOV PC, LR 
+     pop {pc} 
 //UP3 benutzt Nicht-Scratchregister und stellt keine Blattroutine dar
 up3:
 
-    stmfd 	sp!, {r4, r5, r6, r7}
-    CMP r10, r3
-    
+		
+	stmdb 	sp!, {r4, r5, lr}
+	bl up2
+        ldmfd	sp!, {r4, r5, pc}
 
+	pop {pc}
+	
 fertig:
 
 	pop	{pc}

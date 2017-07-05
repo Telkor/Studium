@@ -24,15 +24,13 @@ Add_instr:
     STR r3, Count
     BNE Loop
 
-Halt:
-b Halt
 
 //; Data definitions
 //Total 	DEFW 0 ; Total - initially zero
 Total:	.word	0
 //One 	DEFW 1 ; The number one
 //Count 	DEFW 4 ; Loop counter (loop 5x)
-Count:	.word	4
+Count:	.word	5
 //Table 	DEFW 39 ; The numbers to total ...
 //	DEFW 25 ;
 //	DEFW 4 ;
