@@ -16,18 +16,22 @@ main:
 	ldr	r2, = 0x0
 	ldr	r7, = 0xFF00FF00
 	
-	mov	r1, r0, LSL#16	
-	mov	r2, r0, LSR#16
-	mov	r3, r1, LSL#8
-	mov	r4, r1, LSR#8
-	eor	r1, r3, r4
-	mov	r1, r1, LSR#16
-	mov	r5, r2, LSR#8
-	mov	r6, r2, LSL#8
-	eor	r2, r5, r6
-	mov	r2, r2, LSL#16	
+	//mov	r1, r0, LSL#16	
+	//mov	r2, r0, LSR#16
+	//mov	r3, r1, LSL#8
+	//mov	r4, r1, LSR#8
+	//eor	r1, r3, r4
+	//mov	r1, r1, LSR#16
+	//mov	r5, r2, LSR#8
+	//mov	r6, r2, LSL#8
+	//eor	r2, r5, r6
+	//mov	r2, r2, LSL#16	
 	
-	
+	AND	r1, r0,r7
+	MOV	r7, r7, LSR#8
+	AND	r2, r7
+	MOV	r1, r1, LSR#8
+	MOV	r2, r2, LSL#8
 	EOR	r0, r1, r2
 	
 	
