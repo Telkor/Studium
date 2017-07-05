@@ -45,29 +45,41 @@ sortieren:
 	SUB r4, #2
 	
     
-aeussereSchleife:
+	aeussereSchleife:
 		LDR r3, =Liste2
 		mov r5, r4 @aktuelle anzahl der unsortieren elemente fuer innere schleife holen
     
-innereSchleife:
+	innereSchleife:
 		ADD r3, #4
 		LDR r1, [r3]
 		LDR r2, [r3, #4]
     
-ueberpruefung:
+	ueberpruefung:
 		cmp r2, r1 @ r1-r2 und ergebnis verwerfen
 		
 		STRMI r2, [r3]
 		STRMI r1, [r3, #4]
     
+	bmi swap @falls negativ flag, tauschen
+	
+        schieber:
+		STR r1, [r3]
+		STR r2, [r3, #4]
 		subs r5, #1 @ inneren schleifenzaeahler
 		bne innereSchleife @falls noch nicht 0 nochmal
     
 		subs r4, #1 @aueﬂere schleife runterzaehlen
 		
 		bne aeussereSchleife
-	
+		bal fertig
     
+	swap:
+	   	mov r0, r1 @ dreieckstausch
+	    	mov r1, r2
+	    	mov r2, r0
+	  	bal schieber
+
+
 fertig:
 	ldmfd sp!, {r4, r5, pc} @ Ruecksprungadresse und Register
 

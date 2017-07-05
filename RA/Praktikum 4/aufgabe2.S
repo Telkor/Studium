@@ -10,10 +10,10 @@
 	.type	main,function
 	
 main:
-	mov r6, #113
+@	mov r6, #113
 	ADR r1, marke 
 
-	MSR CPSR, r6
+@	MSR CPSR, r6
 marke: 
 	mov r0, #10 
 
