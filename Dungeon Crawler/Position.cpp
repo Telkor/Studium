@@ -18,7 +18,7 @@ Position::~Position() {
     return os;    
     }
     
-    bool operator<(const Position& right, const Position& left){
+    bool operator<<(const Position& right, const Position& left){
         if (left.m_height < right.m_height)
             return true;
         if(left.m_width < right.m_width && left.m_height == right.m_height)
