@@ -3,30 +3,19 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
-#include "Tile.h"
 #include "Floor.h"
 #include "Wall.h"
 #include "Door.h"
 #include "Switch.h"
+#include "Tile.h"
+#include "Trap.h"
+#include "Lever.h"
+#include "Position.h"
 
 using namespace std;
 
 #ifndef DUNGEONMAP_H
 #define	DUNGEONMAP_H
-
-struct Position{
-    int m_height;
-    int m_width;
-    
-    Position(){
-        m_height = 1;
-        m_width = 1;
-    }
-    Position(int height, int width){
-        m_height = height;
-        m_width = width;
-    }
-};
 
 class DungeonMap{
     

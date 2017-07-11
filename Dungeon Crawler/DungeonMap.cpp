@@ -4,8 +4,7 @@
 #include <vector>
 #include <math.h>
 #include "DungeonMap.h"
-#include "Trap.h"
-#include "Lever.h"
+
 
 using namespace std;
 
@@ -163,15 +162,6 @@ void DungeonMap::print(Position rs){ //Ausgabe der Spielwelt
                cout << "#";
 
              
-            
-      /*      if (Spielwelt[i][j]->hasCharacter()){
-                cout << c->getZeichen();
-            }
-            if (Spielwelt[i][j]->getTile() == Tile::Floor)
-                cout << ".";
-            if (Spielwelt[i][j]->getTile() == Tile::Wall)
-                cout << "#";
-            if (Spielwelt[i][j]->getTile() == ) */
         }
     }
     cout << endl;
@@ -235,5 +225,59 @@ bool DungeonMap::hasLineOfSight(Position from, Position to){  //Bresenham-Algori
 }
 
 vector<Position> DungeonMap::getPathTo(Position from, Position to){
+    vector<Position> weg;
     
+    if (hasLineOfSight(from, to) == true){
+    
+    while (from.m_height != to.m_height && from.m_width != to.m_width){
+        
+        if (from.m_height > to.m_height && from.m_width > to.m_width){
+            from.m_height--;
+            from.m_width--;
+            weg.push_back(from);
+            //continue;
+        }
+        
+        if (from.m_height < to.m_width && from.m_width < to.m_width){
+            from.m_height++;
+            from.m_width++;
+            weg.push_back(from);
+        }
+        
+        if (from.m_height < to.m_width && from.m_width > to.m_width){
+            from.m_height++;
+            from.m_width--;
+            weg.push_back(from);
+        }
+        
+        if (from.m_height > to.m_width && from.m_width < to.m_width){
+            from.m_height--;
+            from.m_width++;
+            weg.push_back(from);
+        }
+        
+        if (from.m_height > to.m_height && from.m_width == to.m_width){
+            from.m_height--;
+            weg.push_back(from);
+        }
+        
+        if (from.m_height < to.m_height && from.m_width == to.m_width){
+            from.m_height++;
+            weg.push_back(from);
+        }
+        
+        if (from.m_height == to.m_height && from.m_width < to.m_width){
+            from.m_width++;
+            weg.push_back(from);
+        }
+        
+        if (from.m_height == to.m_height && from.m_width > to.m_width){
+            from.m_width--;
+            weg.push_back(from);
+        }
+        
+    }
+    }
+    else
+        return weg;
 }

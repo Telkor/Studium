@@ -1,10 +1,5 @@
-#include <cstdlib>
-#include <iostream>
-#include <string>
-#include <vector>
-#include <stdio.h>
 #include "Character.h"
-#include "Controller.h"
+
 
 using namespace std;
 
@@ -16,25 +11,32 @@ Character::~Character(){
    items.clear();
 }
 
-Character::Character(char zeichenart, int m_strength, int m_stamina, bool m_isKI){
+Character::Character(char zeichenart, int m_strength, int m_stamina, Controller* m_controller){
     zeichen = zeichenart;
     strength = m_strength;
     stamina = m_stamina;
     hitpoints = getMaxHP();
-    controller = new ConsoleController(this);
-    stat = new StationaryController(this);
-    cons = new ConsoleController(this);
-    isKI = m_isKI;
+    controller = m_controller;
+//    stat = new StationaryController(this);
+//    cons = new ConsoleController(this);
+//    att = new AttackController(this);
+//    isKI = m_isKI;
+//    isAtt = m_isAtt;
     
-}  
-    
+}  void Character::setController(DungeonMap* map, Character* c) {
+    controller->setDm(map);
+    controller->setEnemy(c);
+}
+
 char Character::move(){
-    if (isKI == true)
-        return stat->move();
-    else 
-        return cons->move();
+//    if (isKI == true && isAtt == false)
+//        return stat->move();
+//    else if (isKI == true && isAtt == true)
+//        return att->move();
+//    else 
+//        return cons->move();
    
-    //controller->move();
+    controller->move();
  
     /*
     char c;
@@ -63,7 +65,7 @@ void Character::setZeichen(char q){
 }
 
 int Character::getMaxHP(){
-    return 20 + (getStamina() * 5);
+    return 1; //20 + (getStamina() * 5);
 }
 
 void Character::showInfo(){
@@ -108,9 +110,4 @@ int Character::getHP(){
 
 bool Character::getIsKI(){
     return isKI;
-}
-
-ostream& operator<<(ostream& os, const Character& character){
-    os << character.zeichen << character.strength << character.stamina << character.hitpoints;
-    return os;
 }

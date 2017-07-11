@@ -12,18 +12,10 @@ Tile::Tile(Character* character){
     held = character;
 }
 
-/* Tile::Tile(TileTyp typart){
-    typ = typart;
-    held = nullptr;  
-} */
 
 Tile::~Tile(){
     held = nullptr;
 }
-
-/* Tile::TileTyp Tile::getTile() const{
-    return typ;
-} */
 
 Character* Tile::getCharacter() const{
     return held;

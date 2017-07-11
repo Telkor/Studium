@@ -1,20 +1,31 @@
 #ifndef ATTACKCONTROLLER_H
 #define	ATTACKCONTROLLER_H
 #include "Controller.h"
-#include "DungeonMap.h"
-#include "Character.h"
+//#include "DungeonMap.h"
+//#include "Character.h"
+//#include "DungeonMap.h"
 #include <vector>
+#include "Position.h"
+#include "DungeonMap.h"
+
+class Character;
 
 using namespace std;
 
 class AttackController : public Controller {
 public:
-    AttackController(DungeonMap* m_dm, Character* ch);
+    AttackController();
+    AttackController(Character* m_self);
     virtual ~AttackController();
     char move();
+    void setDm(DungeonMap* m_dm) override;
+    void setEnemy(Character* m_enemy) override;
+   
+    
 private:
-    Character* character;
-    DungeonMap* dm;
+    Character* self;
+    Character* enemy;
+    DungeonMap* dm = new DungeonMap();
     vector<Position> PathtoPlayer;
 };
 

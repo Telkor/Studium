@@ -5,18 +5,19 @@
 #include <vector>
 #include <cstdlib>
 #include "Controller.h"
-#include "ConsoleController.h"
-#include "StationaryController.h"
 #include "Item.h"
 
+
 using namespace std;
+
+class DungeonMap;
 
 class Character{
 
 public:
     Character();
     ~Character();
-    Character(char zeichenart, int m_strength, int m_stamina, bool m_isKI);
+    Character(char zeichenart, int m_strength, int m_stamina, Controller* m_controller);
     char move();
     char getZeichen() const;
     void setZeichen(char q);
@@ -28,7 +29,7 @@ public:
     void damage(int i);
     int getHP();
     bool getIsKI();
-    friend ostream& operator<<(ostream& os, const Character& character);
+    void setController(DungeonMap* map, Character* c);
     
 private:
     char zeichen = '8';
@@ -38,8 +39,10 @@ private:
     int hitpoints;
     vector<Item*> items;
     bool isKI;
-    StationaryController* stat;
-    ConsoleController* cons;
+//    StationaryController* stat;
+//    ConsoleController* cons;
+    bool isAtt;
+//    AttackController* att;
 };
 
 

@@ -25,7 +25,7 @@ public:
 private:
     Passive* pPointer; 
     bool status;
-    Character* held = new Character;
+    Character* held ;
   
 };
 #endif	/* ACTIVE_H */

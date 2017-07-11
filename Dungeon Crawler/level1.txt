@@ -22,6 +22,7 @@
 5
 Character @ 5 5 ConsoleController 12 12
 Character % 2 2 StationaryController 3 4
+Character & 25 0 AttackController 10 10
 Greatsword 1 4
 Door 4 4 Switch 6 4
 Trap 8 8

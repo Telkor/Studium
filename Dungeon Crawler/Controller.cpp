@@ -12,3 +12,10 @@ Controller::Controller(Character* m_character){
     character = m_character;
 }
 
+void Controller::setDm(DungeonMap* m_dm){
+    
+}
+
+void Controller::setEnemy(Character* enemy){
+    
+}

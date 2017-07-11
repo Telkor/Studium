@@ -6,6 +6,9 @@
 #include <cstdlib>
 #include "DungeonMap.h"
 #include "Character.h"
+#include "Active.h"
+#include "Trap.h"
+#include "Position.h"
 
 
 class GameEngine{

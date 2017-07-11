@@ -6,8 +6,7 @@
 #include <string>
 #include <vector>
 
-
-
+class DungeonMap;
 
 class Character;
 
@@ -17,9 +16,13 @@ public:
     Controller(); 
     virtual char move() = 0;    
     Controller(Character* m_character);    
+    void virtual setEnemy(Character* enemy);
+    void virtual setDm(DungeonMap* m_dm);
 
-private:
+protected:
     Character* character;
+    DungeonMap* dm;
+    
     
     
 };

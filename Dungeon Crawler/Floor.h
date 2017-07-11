@@ -7,7 +7,7 @@
 #include <vector>
 #include "Tile.h"
 #include "Item.h"
-//#include "Character.h"
+#include "Character.h"
 
 using namespace std;
 

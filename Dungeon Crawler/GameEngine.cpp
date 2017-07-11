@@ -1,6 +1,8 @@
 #include "GameEngine.h"
-#include "Active.h"
-#include "Trap.h"
+#include "AttackController.h"
+#include "StationaryController.h"
+#include "ConsoleController.h"
+
 
 using namespace std;
 
@@ -36,11 +38,13 @@ void GameEngine::turn(){
     }
     
     for (int i = 0; i < spielfiguren.size(); i++){
-        
+        Position pos;
         int count = 0;
         
+        
+        
         for (int j = 0; j < spielfiguren.size(); j++){
-            if (spielfiguren.at(j)->getIsKI() == false)
+            if (spielfiguren.at(j)->getZeichen() == '@')
                 count++;
         }
         
@@ -52,17 +56,11 @@ void GameEngine::turn(){
         
         count = 0;
         
-        Position pos;
        
+       
+     
         
         
-        if (spielfiguren.at(i)->getHP() <= 0){
-            pos = dm.findCharacter(spielfiguren.at(i));
-            dm.findTile(pos)->setCharacter(nullptr);
-            delete spielfiguren.at(i);
-            spielfiguren.erase(spielfiguren.begin()+i);
-            return;          
-        }
                     
         pos = dm.findCharacter(spielfiguren.at(i));
         dm.print(pos);
@@ -75,13 +73,41 @@ void GameEngine::turn(){
         Tile* newTile;
         
         switch(spielfiguren.at(i)->move()){
-                case 'w':   
-                            newPos.m_height--;
-                            newTile = dm.findTile(newPos);
-                            oldTile->onLeave(newTile);
-                            break;
+            case 'w':   
+                        newPos.m_height--;
+                        newTile = dm.findTile(newPos);
+                        oldTile->onLeave(newTile);
+                        break;
                 
-                case 'a':   
+            case 'q': 
+                    newPos.m_height--;
+                    newPos.m_width--;
+                    newTile = dm.findTile(newPos);
+                    oldTile->onLeave(newTile);
+                    break;
+             
+            case 'e':
+                    newPos.m_height--;
+                    newPos.m_width++;
+                    newTile = dm.findTile(newPos);
+                    oldTile->onLeave(newTile);
+                    break;
+                    
+            case 'y':
+                newPos.m_height++;
+                    newPos.m_width--;
+                    newTile = dm.findTile(newPos);
+                    oldTile->onLeave(newTile);
+                    break;
+                    
+            case 'c':
+                newPos.m_height++;
+                    newPos.m_width++;
+                    newTile = dm.findTile(newPos);
+                    oldTile->onLeave(newTile);
+                    break;
+                    
+            case 'a':   
                             newPos.m_width--;
                             newTile = dm.findTile(newPos);
                             oldTile->onLeave(newTile);
@@ -93,14 +119,13 @@ void GameEngine::turn(){
                             oldTile->onLeave(newTile);
                             break;         
         
-                case 's':   
+                case 'x':   
                             newPos.m_height++;
                             newTile = dm.findTile(newPos);
                             oldTile->onLeave(newTile);
                             break;                    
                             
-                case 'r':  
-                            cout << "test";
+                case 's':  
                             break;            
                 
                 case 'g':   
@@ -134,7 +159,13 @@ void GameEngine::turn(){
           
                             break;
         }
-        cout << newPos.m_height << " " << newPos.m_width << endl;
+        if (spielfiguren.at(i)->getHP() <= 0){
+            pos = dm.findCharacter(spielfiguren.at(i));
+            dm.findTile(pos)->setCharacter(nullptr);
+            delete spielfiguren.at(i);
+            spielfiguren.erase(spielfiguren.begin()+i);
+            return;          
+        }
     } 
     spielEnde--;
     
@@ -205,13 +236,23 @@ void GameEngine::link(vector<string> &specialTiles){
             
             
             if (controller == "ConsoleController"){
-                Character* c = new Character(zeichen, strength, stamina, false);
+                Controller* controller = new ConsoleController();
+                Character* c = new Character(zeichen, strength, stamina, controller);
                 dm.place(posobj, c);
                 spielfiguren.push_back(c);
             }
             if (controller == "StationaryController"){
-                Character* c = new Character(zeichen, strength, stamina, true);
+                Controller*  controller = new StationaryController;
+                Character* c = new Character(zeichen, strength, stamina, controller);
                 dm.place(posobj, c);
+                spielfiguren.push_back(c);
+            }
+            
+            if (controller == "AttackController"){
+                Controller* controller = new AttackController;
+                Character* c = new Character(zeichen, strength, stamina, controller);
+                dm.place(posobj, c);
+                c->setController(&dm, spielfiguren.at(0));
                 spielfiguren.push_back(c);
             }
         }

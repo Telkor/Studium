@@ -11,11 +11,10 @@ StationaryController::StationaryController() : Controller(){
 }
 
 StationaryController::StationaryController(Character* c) : Controller(c){
-    
-    
+    character = c;
 }
 
 char StationaryController::move(){
 
-    return 'r';
+    return 's';
 }
