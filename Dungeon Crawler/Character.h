@@ -39,10 +39,8 @@ private:
     int hitpoints;
     vector<Item*> items;
     bool isKI;
-//    StationaryController* stat;
-//    ConsoleController* cons;
+
     bool isAtt;
-//    AttackController* att;
 };
 
 
