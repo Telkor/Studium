@@ -47,9 +47,14 @@
 
 
 body {
+    background-image: url(lecker_pizza.jpg);
     background-color: #EEE;
+    background-repeat: no-repeat;
+    background-size:cover;
+    
     font-family: Trebuchet MS, Arial;
     color: black;
+    
 }
     
  
