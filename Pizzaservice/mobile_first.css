@@ -1,4 +1,29 @@
 
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #333;
+    color: #fff;
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-align: center;
+    background-image: url(lecker_pizza.jpg);
+    background-repeat: no-repeat;
+    
+}
+
+h1,h2,h3{
+    margin:0;
+    padding: 1em 0;
+}
+
+#header{
+    min-height:100%-50%;
+    color: #fff;
+    text-align: center;
+}
+
+
 
 #header{
     background-color:indianred;
@@ -22,7 +47,7 @@
 
 #nav{
     width: 180px;
-    
+    height: 800px;
     float: left;
     background-color:white;
     padding: 10px; 
@@ -43,7 +68,7 @@
 
 #main{
     width: 780px;
-    height:700px;
+    height:800px;
     float: right;
     padding: 10px;
     background-color:white;
@@ -60,11 +85,7 @@ select{
 
 
 body {
-    background-image: url(lecker_pizza.jpg);
-    background-color: #EEE;
-    background-repeat: no-repeat;
-    background-size:cover;
-    
+
     font-family: Trebuchet MS, Arial;
     color: black;
     
@@ -80,4 +101,4 @@ a{
 h1, h2, h3{
     margin: 0;
 }
-
+*/
