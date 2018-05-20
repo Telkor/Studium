@@ -7,7 +7,7 @@
     </head>
 <body>
     
-    <script src="jscript.js"></script> 
+  <!--  <script type="text/javascript" src="jscript.js"></script> -->
     
     <section id="container">
             <section id="header">
@@ -30,45 +30,132 @@
                      <section><header><h1>Bestellung</h1></header></section>
     
                    
-    <p><img id="margherita" src="margherita_pizza.png" alt="Margherita Pizza" style="width:50px;height:50pxpx" onclick="preis_berechnen(preis)">Magherita 4,00€</p>
-    <p><img id="salami" src="salami_pizza.png" alt="Margherita Pizza" style="width:50px;height:50pxpx" onclick="preis_berechnen(preis)">Salami 4,50€</p>
-    <p><img id="hawaii" src="hawaii_pizza.png" alt="Margherita Pizza" style="width:50px;height:50pxpx" onclick="preis_berechnen(preis)">Hawaii 5,00€</p>
+    <p><img id="margherita" src="margherita_pizza.png" alt="Margherita Pizza" style="width:50px;height:50pxpx" onclick="addMargherita();addMargheritaOption()">Margherita 4,00€</p>
+    <p><img id="salami" src="salami_pizza.png" alt="Salami Pizza" style="width:50px;height:50pxpx" onclick="addSalami();addSalamiOption()">Salami 4,50€</p>
+    <p><img id="hawaii" src="hawaii_pizza.png" alt="Hawaii Pizza" style="width:50px;height:50pxpx" onclick="addHawaii();addHawaiiOption()">Hawaii 5,00€</p>
     
                  
              
 
-    <p>Warenkorb</p>       
-    <select name="test" size="5" >
-    <option>A</option>
-    <option>B</option>
-    <option>C</option>
+    <p>Warenkorb</p>
+    <form>
+    <select id="Warenkorb" size="5" >
     </select>
-    <p> </p>
-    
+    </form>
+    <br>
+                     
+    <script>
 
-         <script>
-            var preis = 5;
+  var preis = 5;
+        var preis2 = 3;
+        var warenkorbPreis = 0;
              
-        function preis_berechnen(preis){  
-            var zahl = 2;
-            var preisausgabe = document.getElementById("preisausgabe");
-            preisausgabe = preis + zahl; 
+        function addHawaii(){
+            var pizzaPreis = 5;
+            warenkorbPreis += pizzaPreis;
+            document.getElementById("preisausgeben").value = warenkorbPreis;
         };
-            
              
-           // window.alert("test" + preis)
-            document.write( preis + "€"); 
-         
+        function addMargherita(){
+            var pizzaPreis = 4;
+            warenkorbPreis += pizzaPreis;
+            document.getElementById("preisausgeben").value = warenkorbPreis;
+            
+        }
+        
+        
+        function addSalami(){
+            var pizzaPreis = 4.5;
+            warenkorbPreis += pizzaPreis;
+            document.getElementById("preisausgeben").value = warenkorbPreis;
+        }
+        
+                function addMargheritaOption(){
+            var x = document.getElementById("Warenkorb");
+                    
+            var option = document.createElement("option");
+            option.text = "Magherita Pizza";
+            x.add(option);
+        }
+        
+                function addSalamiOption(){
+            var x = document.getElementById("Warenkorb");
+            var option = document.createElement("option");
+            option.text = "Salami Pizza";
+            x.add(option);
+        }
+        
+                function addHawaiiOption(){
+            var x = document.getElementById("Warenkorb");
+            var option = document.createElement("option");
+            option.text = "Hawaii Pizza";
+            x.add(option);
+        }
+        
+            function auswahlLoeschen(){
+                var y = document.getElementById("Warenkorb");
+                var a = document.getElementById("Warenkorb").options[document.getElementById("Warenkorb").selectedIndex].text;
+               
+                if(a == "Magherita Pizza"){
+                    warenkorbPreis -= 4; 
+                    document.getElementById("preisausgeben").value = warenkorbPreis;
+                }
+                
+                if(a == "Salami Pizza"){
+                    warenkorbPreis -= 4.5;
+                    document.getElementById("preisausgeben").value = warenkorbPreis;
+                }
+                
+                if(a == "Hawaii Pizza"){
+                    warenkorbPreis -= 5;
+                    document.getElementById("preisausgeben").value = warenkorbPreis;
+                }
+
+                   y.remove(a);
+        }
+        
+        function allesLoeschen(){
+            var x = document.getElementById("Warenkorb").options.length = 0;
+            warenkorbPreis = 0;
+            document.getElementById("preisausgeben").value = warenkorbPreis;
+        }
+        
+        function bestellen(){
+            var x = document.getElementById("Warenkorb").options.length;
+            var y = document.getElementById("lieferadresse").value;
+            
+            if(x == 0)
+                alert("Ihr Warenkorb ist leer.");
+            
+            if(y == "")
+                alert("Bitte geben Sie eine Lieferadresse ein.");
+            
+            if(x != 0 && y != ""){
+                alert("test");
+            }
+        }
+        
+        
+        function preis_berechnen(preis){  
+            var zahl = 3;
+            document.getElementById("preisausgeben").value = preis + zahl;   
+        }
+        
+    
+        
+    </script>                
                      
-     </script>  
+    <form>                 
+      <output id="preisausgeben"> 0 </output>€               
+    </form>
+                         
+    <br> 
                      
-    <p></p> 
-    <!--<p>12€</p>-->
-    <input type="text">
-    <p></p>
-    <button type="button">Alle Löschen</button>
-    <button type="button">Auswahl Löschen</button>
-    <button type="button">Bestellen</button>
+    <input type="text" id="lieferadresse" placeholder="Lieferadresse eingeben...">
+    <br><br>
+    <button type="button" onclick="allesLoeschen()">Alle Löschen</button>
+    <button type="button" onclick="auswahlLoeschen()">Auswahl Löschen</button>
+    <button type="button" onclick="bestellen()">Bestellen</button>
                      
                  </section>
             
