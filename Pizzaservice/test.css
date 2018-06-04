@@ -1,0 +1,174 @@
+#header{
+    width: 100%;
+    background-color:indianred;
+    color: white;
+    text-align:center;
+    
+}
+
+#container{
+    background-color:white;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content{
+        float: left;
+    
+    
+}
+
+#nav{
+    width: 97%;
+    float: left;
+    background-color:white;
+    padding: 5px;
+    text-align: center;
+}
+
+#nav ul{
+    list-style-type: none;
+    padding: 0;
+    
+}
+
+#nav .selected{
+    font-weight: bold;
+    padding: none;
+}
+
+img{
+    vertical-align: middle;
+}
+
+select{
+    width:180px;
+    height:100px;
+}
+
+#main{
+    width: 325px;
+    height:390px;
+    float: left;
+    padding: 10px;
+    background-color:white;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    
+}
+
+html{
+  background: url(lecker_pizza.jpg) no-repeat center center fixed; 
+  background-size: cover;
+}
+
+
+
+
+@media(min-width:768px){
+
+#header{
+    background-color:indianred;
+    color: white;
+    text-align:center;
+    background-image: none;
+    
+}
+
+#container{
+    background-color: white;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#content{
+        float: left;
+    
+}
+
+#nav{
+    width: 180px;
+    float: left;
+    background-color:white;
+    padding: 10px;
+    text-align: initial;
+}
+
+#nav ul{
+    list-style-type: none;
+    padding: 0;
+    
+}
+
+#nav .selected{
+    font-weight: bold;
+    padding: none;
+}
+
+
+
+#main{
+    width: 780px;
+    height:800px;
+    float: right;
+    padding: 10px;
+    background-color:white;
+    text-align: initial;
+}
+
+img{
+    vertical-align: middle;
+}
+
+select{
+    width:180px;
+    height:100px;
+}
+    
+html{
+  background: none; 
+  background-size: none;
+}    
+
+
+body {
+    background-image: url(lecker_pizza.jpg);
+    background-color: #EEE;
+    background-repeat: no-repeat;
+    background-size:cover;
+    
+    font-family: Trebuchet MS, Arial;
+    color: black;
+    
+}
+    
+    
+    
+ 
+
+a{
+    text-decoration: none;
+    
+}
+
+h1, h2, h3{
+    margin: 0;
+}
+
+label{
+    display: inline-block;
+    padding: 0 1em;
+    text-align:center;
+}
+    
+    #statusliste{
+    text-align: center;
+}
+    
+}

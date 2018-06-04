@@ -22,7 +22,6 @@
 
 #nav{
     width: 180px;
-    
     float: left;
     background-color:white;
     padding: 10px; 
@@ -43,10 +42,15 @@
 
 #main{
     width: 780px;
-    height:700px;
+    height:800px;
     float: right;
     padding: 10px;
     background-color:white;
+    
+}
+
+#statusliste{
+    text-align: center;
 }
 
 img{
@@ -81,3 +85,8 @@ h1, h2, h3{
     margin: 0;
 }
 
+label{
+    display: inline-block;
+    padding: 0 1em;
+    text-align:center;
+}

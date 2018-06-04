@@ -74,7 +74,7 @@
             var x = document.getElementById("Warenkorb");
                     
             var option = document.createElement("option");
-            option.text = "Magherita Pizza";
+            option.text = "Margherita Pizza";
             x.add(option);
         }
         
@@ -96,7 +96,7 @@
                 var y = document.getElementById("Warenkorb");
                 var a = document.getElementById("Warenkorb").options[document.getElementById("Warenkorb").selectedIndex].text;
                
-                if(a == "Magherita Pizza"){
+                if(a == "Margherita Pizza"){
                     warenkorbPreis -= 4; 
                     document.getElementById("preisausgeben").value = warenkorbPreis;
                 }
@@ -111,7 +111,8 @@
                     document.getElementById("preisausgeben").value = warenkorbPreis;
                 }
 
-                   y.remove(a);
+                   y.remove(y.selectedIndex);
+               
         }
         
         function allesLoeschen(){
@@ -131,7 +132,7 @@
                 alert("Bitte geben Sie eine Lieferadresse ein.");
             
             if(x != 0 && y != ""){
-                alert("test");
+                alert("Bestellung erfolgreich");
             }
         }
         
@@ -145,9 +146,9 @@
         
     </script>                
                      
-    <form>                 
+                  
       <output id="preisausgeben"> 0 </output>€               
-    </form>
+    <br>
                          
     <br> 
                      

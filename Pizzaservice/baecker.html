@@ -1,57 +1,85 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>Pizzaservice</title>
-        <link rel="stylesheet" type="text/css" href="Style_Sheet.css">
+    <meta charset="UTF-8" />
+    <title>Pizzaservice</title>
+    <link rel="stylesheet" type="text/css" href="Style_Sheet.css">
 </head>
-    <body>
-        
-            <section id="container">
-            <section id="header">
-                <h1>Pizzaservice</h1>
-            </section>
+
+<body>
+
+    <section id="container">
+        <section id="header">
+            <h1>Pizzaservice</h1>
+        </section>
         <section id="content">
-                <section id="nav">
-                    <h3>Navigation</h3>
-                    <ul> 
-                       
-                        <li><a href="./bestellung.html">Bestellung</a></li>
-                        <li><a href="./kunde.html">Kunde</a></li>
-                        <li><a class="selected" href="./baecker.html">Bäcker</a></li>
-                        <li><a href="./fahrer.html">Fahrer</a></li>    
-                    </ul>
-                
-                </section>
-                    
-                 <section id="main">
-                      <section><header><h1>Bäcker</h1></header></section>
-                     
- <br> <strong> bestellt im Ofen fertig</strong>
-        
-   <br> Margherita <input type="radio" name="OK" value="1" /> 
-    <input type="radio" name="OK" value="2" />
-     <input type="radio" name="OK" value="3" /> 
-        
-   
-   <br> Margherita <input type="radio" name="OK" value="1" />
-    <input type="radio" name="OK" value="2" />
-     <input type="radio" name="OK" value="3" /> 
-        
-        
-    <br> Hawaii  <input type="radio" name="OK" value="1" /> 
-    <input type="radio" name="OK" value="2" />
-     <input type="radio" name="OK" value="3" /> 
-                     
-                 </section>
-            
-            
+            <section id="nav">
+                <h3>Navigation</h3>
+                <ul>
+
+                    <li><a href="./bestellung.html">Bestellung</a></li>
+                    <li><a href="./kunde.html">Kunde</a></li>
+                    <li><a class="selected" href="./baecker.html">Bäcker</a></li>
+                    <li><a href="./fahrer.html">Fahrer</a></li>
+                </ul>
+
             </section>
-        
-        
-    </section>  
-           
-        
-    </body>
+
+            <section id="main">
+                <section>
+                    <header>
+                        <h1>Bäcker - Statusliste</h1>
+                    </header>
+                </section>
+                <section id="statusliste"> 
+<br><br>Margherita
+                <br><br>
+                <label for="bestellt"><strong>bestellt</strong><br />
+    <input type="radio" id="bestellt" name="OK" value="1" /> 
+                     </label>
+                <label for="imOfen"><strong>im Ofen</strong><br />
+    <input type="radio" id="imOfen" name="OK" value="2" />
+                     </label>
+                <label for="fertig"><strong>fertig</strong><br />
+     <input type="radio" id="fertig" name="OK" value="3" /> 
+                     </label>
+                <br>
+                    
+               <br><br>Margherita
+                <br><br>
+                <label for="bestellt"><strong>bestellt</strong><br />
+    <input type="radio" id="bestellt" name="OK" value="1" /> 
+                     </label>
+                <label for="imOfen"><strong>im Ofen</strong><br />
+    <input type="radio" id="imOfen" name="OK" value="2" />
+                     </label>
+                <label for="fertig"><strong>fertig</strong><br />
+     <input type="radio" id="fertig" name="OK" value="3" /> 
+                     </label>
+                <br>
+
+<br><br>Hawaii
+                <br><br>
+                <label for="bestellt"><strong>bestellt</strong><br />
+    <input type="radio" id="bestellt" name="OK" value="1" /> 
+                     </label>
+                <label for="imOfen"><strong>im Ofen</strong><br />
+    <input type="radio" id="imOfen" name="OK" value="2" />
+                     </label>
+                <label for="fertig"><strong>fertig</strong><br />
+     <input type="radio" id="fertig" name="OK" value="3" /> 
+                     </label>
+                <br>
+            </section>
+            </section>
+
+
+        </section>
+
+
+    </section>
+
+
+</body>
 
 </html>
